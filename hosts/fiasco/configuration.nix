@@ -134,7 +134,6 @@
 
           ];
       };
-  nix.nixPath = ["nixpkgs=/home/lukas/.config/nixpkgs"];
 
 }
 

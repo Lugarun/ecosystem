@@ -11,6 +11,8 @@
     ./profiles/firefox/home.nix
     ./profiles/git/home.nix
     ./profiles/kakoune/home.nix
+    ./profiles/secrets/home.nix
+    ./profiles/mopidy/home.nix
   ];
 
   # Home-manager setup
