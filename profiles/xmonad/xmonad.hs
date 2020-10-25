@@ -10,7 +10,7 @@ import System.Exit
 
 -- Some defaults
 
-myTerminal = "kitty"
+myTerminal = "alacritty"
 
 myLauncher   = "dmenu_run -m 1"
 
@@ -25,6 +25,7 @@ myManageHook = composeAll
 myAdditionalKeys = 
   [ ((mod4Mask, xK_s), spawn "blurlock")
   , ((mod4Mask, xK_p), spawn myLauncher)
+  , ((mod4Mask, xK_n), spawn "networkmanager_dmenu")
   , ((mod4Mask, xK_Return), spawn myTerminal)
   , ((mod4Mask .|. shiftMask , xK_q), kill)
   , ((mod4Mask .|. shiftMask , xK_Escape), io (exitWith ExitSuccess))
