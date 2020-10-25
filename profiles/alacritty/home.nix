@@ -3,6 +3,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      font.size = 10;
       colors = {
         primary = {
           background = config.colors.background;
