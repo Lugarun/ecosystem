@@ -21,8 +21,11 @@ secrets # contains my secrets using git-crypt
 # taken inspiration from
 - https://github.com/lovesegfault/nix-config
 - https://github.com/nrdxp/nixflk
+- https://git.bytes.zone/brian/dotfiles.nix
+- https://github.com/alexherbo2
 
 # future
 
-- Do I make it a flake?
-- move password store setup into secretes
+- add connect.kak
+- tell xmonad on startup to create a workspace and open up discord, matterhorn, telegram, and a email client (I keep missing one of the chats and then I miss tasks that I need to do) Ideally there would be some client that can handle all of the above like franz but I can't fond one that is light weight, opensources, and keeps data local.
+- make the media keys, and screenshot keys work on my laptop

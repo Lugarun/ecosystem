@@ -13,6 +13,7 @@
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
     ./profiles/mopidy/home.nix
+    ./profiles/matterhorn/home.nix
   ];
 
   # Home-manager setup
@@ -42,6 +43,10 @@
       pkgs.zathura
       pkgs.ghc
       ];
+
+  nixpkgs.overlays = [
+    (import ./overlays/kakoune.nix)
+  ];
 
   gtk = {
       enable = true;
