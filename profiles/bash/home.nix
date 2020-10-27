@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs.fasd pkgs.w3m ];
+  home.packages = [ pkgs.fasd pkgs.w3m pkgs.direnv ];
   programs.bash = {
       enable = true;
       initExtra = ''
