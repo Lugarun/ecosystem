@@ -93,14 +93,14 @@ hook global WinCreate .* %{ kakboard-enable  }
 
 # Repl Interaction
 # ─────────────────────────
-hook global WinSetOption filetype=python %{
-  set window repl_send_command "python -i"
-  set window repl_send_exit_command "exit()"
-}
-hook global WinSetOption filetype=r %{
-  set window repl_send_command "R"
-  set window repl_send_exit_command "q(save = \"no\")"
-}
+#hook global WinSetOption filetype=python %{
+#  set window repl_send_command "python -i"
+#  set window repl_send_exit_command "exit()"
+#}
+#hook global WinSetOption filetype=r %{
+#  set window repl_send_command "R"
+#  set window repl_send_exit_command "q(save = \"no\")"
+#}
 
 
 

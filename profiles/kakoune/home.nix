@@ -6,7 +6,7 @@
     pkgs.kakoune-config
     pkgs.kakoune
     pkgs.nix-linter
-    pkgs.ccls
+    #pkgs.ccls
     pkgs.nixpkgs-fmt
     (pkgs.nerdfonts.override {
       fonts = [ "DejaVuSansMono" ];})
