@@ -8,12 +8,14 @@
     ./profiles/tmux/home.nix
     ./profiles/xmonad/home.nix
     ./profiles/bash/home.nix
+    ./profiles/zsh/home.nix
     ./profiles/firefox/home.nix
     ./profiles/git/home.nix
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
     ./profiles/mopidy/home.nix
     ./profiles/matterhorn/home.nix
+    ./profiles/wiki/home.nix
   ];
 
   # Home-manager setup
@@ -25,6 +27,7 @@
 
   home.packages = [
       pkgs.tree
+      pkgs.entr
       pkgs.wesnoth
       pkgs.htop
       pkgs.nmap
@@ -41,7 +44,6 @@
       pkgs.unzip
       pkgs.udisks
       pkgs.zathura
-      pkgs.ghc
       ];
 
   nixpkgs.overlays = [

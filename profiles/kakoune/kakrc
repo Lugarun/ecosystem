@@ -133,7 +133,7 @@ define-command wiki-follow-link \
             <a-i>b
         }
         evaluate-commands %sh{
-            FILE="$(readlink -f "''${kak_buffile%/*}/$kak_selection")"
+            FILE="$(zlinks.sh -l "''${kak_buffile%/*}/$kak_selection")"
             EXTENSION="''${FILE##*.}"
 
             openAsync () {
@@ -142,11 +142,13 @@ define-command wiki-follow-link \
               abduco -f -n $ABDUCO_NEW "$1" "$FILE" 
             }
 
-            if [[ $EXTENSION == md ]]; then
-              echo "edit" "'"$FILE"'"
-            else
-              openAsync xdg-open
-            fi
+            echo "edit" "'"$FILE"'"
+
+            # if [[ $EXTENSION == md ]]; then
+            #   echo "edit" "'"$FILE"'"
+            # else
+            #   openAsync xdg-open
+            # fi
         }
         try %{ focus %opt{jumpclient} }
     }
