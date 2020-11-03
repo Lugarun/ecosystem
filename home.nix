@@ -46,10 +46,6 @@
       pkgs.zathura
       ];
 
-  nixpkgs.overlays = [
-    (import ./overlays/kakoune.nix)
-  ];
-
   gtk = {
       enable = true;
       theme = {
