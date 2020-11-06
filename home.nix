@@ -44,6 +44,7 @@
       pkgs.unzip
       pkgs.udisks
       pkgs.zathura
+      pkgs.mplayer
       ];
 
   gtk = {

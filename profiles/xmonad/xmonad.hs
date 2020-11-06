@@ -12,7 +12,7 @@ import System.Exit
 
 myTerminal = "alacritty"
 
-myLauncher   = "dmenu_run -m 1"
+myLauncher   = "dmenu_run -m 1 -i"
 
 myWorkspaces = map show [1..6]
 
@@ -23,9 +23,10 @@ myManageHook = composeAll
   ]
 
 myAdditionalKeys = 
-  [ ((mod4Mask, xK_s), spawn "blurlock")
+  [ ((mod4Mask, xK_l), spawn "blurlock")
   , ((mod4Mask, xK_p), spawn myLauncher)
-  , ((mod4Mask, xK_n), spawn "networkmanager_dmenu")
+  , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
+  , ((mod4Mask, xK_u), spawn "passmenu -i")
   , ((mod4Mask, xK_Return), spawn myTerminal)
   , ((mod4Mask .|. shiftMask , xK_q), kill)
   , ((mod4Mask .|. shiftMask , xK_Escape), io (exitWith ExitSuccess))

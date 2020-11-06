@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 
 help(){
-  echo "not much help yet"
+  echo "Usage: $0 [OPTION]"
+  echo "Convert my wiki links into full paths"
+  echo "  -l link 	give a wiki link to convert"
+  echo "  -d path 	directory that specifies directories.yaml file, by default it searches parent directories"
+  echo "  -h		display this help and exit"
+  echo
+  echo "Examples:"
+  echo "  $0 -l z:a2"
 }
 
 findDirectoriesFile() {
-  directoriesFile=${directory}/directories.yaml
+  path=$directory
+  while [[ "$path" != "" && ! -e "$path/directories.yaml" ]]; do
+    path=${path%/*}
+  done
+  directoriesFile=${path}/directories.yaml
 }
 
 args=$(getopt -o "l:h:d" -- "$@")
@@ -39,8 +50,8 @@ while [ $# -ge 1 ]; do
 done
 
 if [[ $link == "0" ]]; then
-  echo No link given.
-  echo link: $link
+  echo No link given. 1>&2
+  echo link: $link 1>&2
   help
   exit 1
 fi
@@ -53,20 +64,22 @@ fi
 findDirectoriesFile
 
 if [[ $directoriesFile == "0" ]]; then
-  echo No link given.
   help
   exit 1
 fi
 
-if [[ $link =~ ^z\:[a-z]+ ]]; then
-  echo ${BASH_REMATCH[1]}
+if [[ $link =~ ^z\:([a-z]+) ]]; then
+  link=$(echo $link | sed -r 's/^z\:[a-zA-Z]+//')
+  directory=$(yq -r -M ".fiasco | del(.[] | select(.${BASH_REMATCH[1]} == null)) | .[].${BASH_REMATCH[1]} | ." directorys.yaml)
+  for d in $directory; do
+    if [[ -f $d/${link}.md ]]; then
+      echo $d/${link}.md
+      exit 0
+    fi
+  done
   exit 1
 else
-  if [[ -f  ${directory}/${link#*:}.md ]]; then
-    echo ${directory}/${link#*:}.md
-  else
-    echo ${directory}/staging/${link#*:}.md
-  fi
+  exit 1
 fi
 
 
