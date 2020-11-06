@@ -31,19 +31,15 @@ let
         final.kakounePlugins.kak-buffers
       ];
     };
-
-    kakoune-config = prev.writeShellScriptBin "k" ''
-      XDG_CONFIG_HOME=/etc/xdg exec ${final.kakoune}/bin/kak "$@"
-    '';
   };
 in {
   home.packages = [
     pkgs.kakoune
-    # pkgs.kakoune-config
     pkgs.fzy
     pkgs.fd
 
     pkgs.kak-lsp
+    pkgs.glow
 
     pkgs.xsel
     pkgs.fasd
