@@ -26,6 +26,7 @@
 
 
   home.packages = [
+      pkgs.xournal
       pkgs.tree
       pkgs.entr
       pkgs.wesnoth
