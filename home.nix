@@ -16,6 +16,7 @@
     ./profiles/mopidy/home.nix
     ./profiles/matterhorn/home.nix
     ./profiles/wiki/home.nix
+    ./profiles/bandwidth-blame/home.nix
   ];
 
   # Home-manager setup
