@@ -24,6 +24,7 @@
   networking.useDHCP = false;
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
+  networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -42,8 +43,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim
+    wget
+    vim
+    tailscale
+    docker
   ];
+
+  # Docker setup
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -58,6 +65,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.tailscale.enable = true;
+
 
   # 32 bit support for steam
   hardware.opengl.driSupport32Bit = true;
@@ -93,7 +102,7 @@
   users.mutableUsers = false;
   users.users.lukas = {
     isNormalUser = true;
-    extraGroups = [ "video" "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "video" "wheel" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
     hashedPassword = "$6$QoMeQJwCG5Xh$PrTJgARgUCtHDu21ZPZVCxPe8pnB99o4GfjwdmhCmf8e1MsxhP4PtkuuLmqtemLw8g2.WNaZjKzyHExfJtsxj/";
   };
 
