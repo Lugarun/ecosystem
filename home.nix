@@ -31,7 +31,6 @@
       pkgs.tree
       pkgs.entr
       pkgs.wesnoth
-      pkgs.htop
       pkgs.nmap
       pkgs.ncpamixer
       pkgs.bashmount
@@ -47,6 +46,7 @@
       pkgs.udisks
       pkgs.zathura
       pkgs.mplayer
+      pkgs.steam
       ];
 
   gtk = {
@@ -63,6 +63,20 @@
 
   services.syncthing.enable = true;
 
+  programs.htop = {
+    enable = true;
+    treeView = true;
+    vimMode = true;
+    showProgramPath = false;
+
+  };
+
+  programs.autorandr = {
+    enable = true;
+    hooks.postswitch = {
+      "restart-xmonad" = "xmonad --restart";
+    };
+  };
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
   services.gpg-agent.pinentryFlavor = "curses";

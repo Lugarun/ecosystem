@@ -66,6 +66,11 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
+  
+  # 32 bit support for steam
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva  ];
 
   # Enable sound.
   sound.enable = true;
