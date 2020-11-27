@@ -17,6 +17,8 @@
     ./profiles/matterhorn/home.nix
     ./profiles/wiki/home.nix
     ./profiles/bandwidth-blame/home.nix
+    ./profiles/microsoft-edge/home.nix
+    ./profiles/dev/salz/home.nix
   ];
 
   # Home-manager setup
@@ -28,6 +30,9 @@
 
   home.packages = [
       pkgs.xournal
+      pkgs.scrot
+      pkgs.usbutils
+      pkgs.pciutils
       pkgs.tree
       pkgs.entr
       pkgs.wesnoth
