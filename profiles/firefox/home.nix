@@ -2,7 +2,7 @@
 {
   programs.firefox = {
     enable = true;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [ dark-night-mode browserpass vimium honey privacy-badger];
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [ dark-night-mode browserpass vimium honey privacy-badger ublock-origin];
     profiles = {
       myprofile = {
         settings = {

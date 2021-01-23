@@ -43,6 +43,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    libimobiledevice # iphone mount
+    cifs-utils # uwaterloo open connect mount
     wget
     vim
     tailscale
@@ -66,6 +68,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.tailscale.enable = true;
+  services.usbmuxd.enable = true; # iphone mount
 
 
   # 32 bit support for steam

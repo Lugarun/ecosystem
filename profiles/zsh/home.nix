@@ -6,13 +6,13 @@
   programs.dircolors.enableZshIntegration = true;
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
-  # programs.starship.enable = true;
-  # programs.starship.enableZshIntegration = true;
-  # programs.starship.settings = {
-  #   add_newline = false;
-  #   character.symbol = "➜";
-  #   line_break.disabled = true;
-  # };
+  programs.starship.enable = true;
+  programs.starship.enableZshIntegration = true;
+  programs.starship.settings = {
+    add_newline = false;
+    character.symbol = "➜";
+    line_break.disabled = true;
+  };
 
   programs.zsh = {
     enable = true;

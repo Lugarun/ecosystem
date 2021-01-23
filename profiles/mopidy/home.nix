@@ -1,15 +1,19 @@
 { pkgs, config, ... }:
 let
+  # pms = import ./bandwidth-blame.nix {  };
 in
 {
   imports = [ ./homeService.nix ];
 
   home.packages = [
     pkgs.ncmpcpp
+    # pms
     pkgs.mopidy
     pkgs.mopidy-mpd
     pkgs.mopidy-spotify
   ];
+
+  # xdg.configFile."pms/pms.conf".src = ./pms.conf;
 
   xdg.configFile."ncmpcpp".text = ''
   mpd_host = 127.0.0.1

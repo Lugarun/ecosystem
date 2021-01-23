@@ -70,10 +70,11 @@ in {
 
     systemd.user.services.mopidy = {
       Unit.After = [ "network.target" "sound.target" ];
+      Install.WantedBy = [ "default.target" ];
       Unit.Description = "mopidy music player daemon";
       Service.ExecStart = "${mopidyEnv}/bin/mopidy --config ${concatStringsSep ":" ([mopidyConf] ++ cfg.extraConfigFiles)}";
       Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p '${cfg.dataDir}'";
-      Install.WantedBy = [ "multi-user.target" ];
+      Service.Restart = "on-failure";
     };
 
     systemd.user.services.mopidy-scan = {

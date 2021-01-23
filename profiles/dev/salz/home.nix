@@ -7,5 +7,5 @@
     pkgs.cabal-install
   ];
 
-  home.file.".kube/config".source = ../../secrets/config;
+  home.file.".kube/config".source = ../../../secrets/config;
 }

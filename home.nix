@@ -3,6 +3,7 @@
 {
   imports = [
     ./profiles/zathura/home.nix
+    ./profiles/taskwarrior/home.nix
     ./profiles/alacritty/home.nix
     ./profiles/colors/home.nix
     ./profiles/tmux/home.nix
@@ -17,7 +18,8 @@
     ./profiles/matterhorn/home.nix
     ./profiles/wiki/home.nix
     ./profiles/bandwidth-blame/home.nix
-    ./profiles/microsoft-edge/home.nix
+    ./profiles/chromium/home.nix
+    ./profiles/remarkable/home.nix
     ./profiles/dev/salz/home.nix
   ];
 
@@ -29,7 +31,11 @@
 
 
   home.packages = [
+      pkgs.kdeApplications.okular
       pkgs.xournal
+      pkgs.killall
+      pkgs.zotero
+      pkgs.openconnect
       pkgs.scrot
       pkgs.usbutils
       pkgs.pciutils
