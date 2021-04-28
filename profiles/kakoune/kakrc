@@ -51,6 +51,8 @@ map global user d ':edit "%val{config}/../nixpkgs/home.nix"<ret>' -docstring 'ed
 map global user c ':comment-line <ret>' -docstring 'toggle line comments'
 map global user f ':fzf-mode <ret>' -docstring 'fzf'
 
+map global user | ':tmux-repl-horizontal <ret>' -docstring 'create repl vertically inside tmux'
+map global user s ':repl <ret>' -docstring 'send selection to repl'
 
 # Wants
 # ─────────────────────────

@@ -6,3 +6,7 @@ hook global WinSetOption filetype=tagbar %{
   # you can also disable rendering whitespaces here, line numbers, and
   # matching characters
 }
+
+hook global WinSetOption filetype=(c|cpp|rust|sh|python|haskell|markdown|latex) %{
+    tagbar-enable
+}
