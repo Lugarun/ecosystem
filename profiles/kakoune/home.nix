@@ -27,6 +27,19 @@ let
       ];
     };
   };
+  lsp-overlay = final: prev: {
+    python38Packages.python-language-server = prev.python38Packages.python-language-server.override {
+      providers = [];
+      autopep8 = null;
+      mccabe = null;
+      pycodestyle = null;
+      pydocstyle = null;
+      pyflakes = null;
+      pylint = null;
+      rope = null;
+      yapf = null;
+    };
+  };
 in {
   home.packages = [
     pkgs.kakoune
@@ -35,6 +48,7 @@ in {
     pkgs.universal-ctags
 
     pkgs.kak-lsp
+    pkgs.python38Packages.python-language-server
     pkgs.glow
 
     pkgs.xsel
@@ -47,6 +61,7 @@ in {
 
   nixpkgs.overlays = [
     kak-overlay
+    lsp-overlay
   ];
 
   fonts.fontconfig.enable = true;
