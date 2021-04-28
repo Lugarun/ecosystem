@@ -2,6 +2,7 @@
 
 {
   imports = [
+    # ./profiles/emacs/home.nix
     ./profiles/zathura/home.nix
     ./profiles/taskwarrior/home.nix
     ./profiles/alacritty/home.nix
@@ -31,14 +32,23 @@
 
 
   home.packages = [
+      pkgs.gnome3.gnome-screenshot
+      pkgs.zoom
       pkgs.kdeApplications.okular
+      pkgs.simplescreenrecorder
+      pkgs.sxiv
+      pkgs.vlc
+      pkgs.bc
+      pkgs.youtubeDL
       pkgs.xournal
       pkgs.killall
       pkgs.zotero
+      pkgs.restic
       pkgs.openconnect
       pkgs.scrot
       pkgs.usbutils
       pkgs.pciutils
+      pkgs.spotify-tui
       pkgs.tree
       pkgs.entr
       pkgs.wesnoth
