@@ -7,6 +7,7 @@ import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Spacing
 import System.IO
 import System.Exit
+import Graphics.X11.ExtraTypes.XF86
 
 -- Some defaults
 
@@ -41,6 +42,12 @@ myAdditionalKeys =
   , ((mod4Mask .|. mod1Mask .|. controlMask , xK_k     ), sendMessage $ ShrinkFrom U)
   , ((mod4Mask,                           xK_r     ), sendMessage Rotate)
   , ((mod4Mask,                           xK_s     ), sendMessage Swap)
+  , ((0, xF86XK_AudioLowerVolume ), spawn "amixer -q set Master 2%- unmute")
+  , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 2%+ unmute")
+  , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
+  , ((0, xF86XK_AudioMicMute ), sequence_ [ spawn "amixer -q set Capture toggle"
+                                          , spawn "bash ~/.config/nixpkgs/profiles/xmonad/toggleMicLight.sh"])
+  , ((0, xF86XK_Favorites ), spawn "bash ~/.config/nixpkgs/profiles/xmonad/toggleTouchpad.sh")
   ]
 
 defaults = defaultConfig
