@@ -14,21 +14,16 @@
 
 { pkgs, ... }:
 let
-  kak-prelude = import ./kak-prelude.nix { pkgs = pkgs; };
-  kak-connect = import ./kak-connect.nix { pkgs = pkgs; };
   kak-kakboard = import ./kak-kakboard.nix { pkgs = pkgs; };
-  kak-explore = import ./kak-explore.nix { pkgs = pkgs; };
+  tagbar = import ./tagbar.nix { pkgs = pkgs; };
   pkgs-unstable = import <nixpkgs-unstable> {};
   kak-overlay = final: prev: {
     kakoune = pkgs-unstable.kakoune.override {
       plugins = [
-        kak-prelude
-        kak-connect
+        tagbar
         kak-kakboard
-        kak-explore
         final.kakounePlugins.kak-powerline
-        final.kakounePlugins.kak-auto-pairs
-        final.kakounePlugins.kak-buffers
+        final.kakounePlugins.kak-fzf
       ];
     };
   };
@@ -37,6 +32,7 @@ in {
     pkgs.kakoune
     pkgs.fzy
     pkgs.fd
+    pkgs.universal-ctags
 
     pkgs.kak-lsp
     pkgs.glow
@@ -44,7 +40,6 @@ in {
     pkgs.xsel
     pkgs.fasd
     pkgs.nix-linter
-    #pkgs.ccls
     pkgs.nixpkgs-fmt
     (pkgs.nerdfonts.override {
       fonts = [ "DejaVuSansMono" ];})
@@ -58,8 +53,6 @@ in {
 
   xdg.configFile."kak/kakrc".source = ./kakrc;
   xdg.configFile."kak/plugins".source = ./plugins;
-  #xdg.configFile."kak/autoload/default".source =
-  #  "${pkgs.kakoune-unwrapped}/share/kak/rc";
 
   xdg.configFile."kak-lsp/kak-lsp.toml".text = ''
   ${builtins.readFile ./kak-lsp.toml}
