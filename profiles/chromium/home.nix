@@ -7,6 +7,7 @@
     "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
     "cjpalhdlnbpafiamejdnhcphjbkeiagm" # add blocker
     "ekhagklcjbdpajgpjgmbionohlpdbjgc" # zotero
+    "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
   ];
 
 }
