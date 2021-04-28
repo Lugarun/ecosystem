@@ -34,6 +34,7 @@
   home.packages = [
       pkgs.gnome3.gnome-screenshot
       pkgs.zoom
+      pkgs.blueberry
       pkgs.kdeApplications.okular
       pkgs.simplescreenrecorder
       pkgs.sxiv
