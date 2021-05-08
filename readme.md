@@ -26,7 +26,13 @@ secrets # contains my secrets using git-crypt
 
 # future
 
-- add connect.kak
 - tell xmonad on startup to create a workspace and open up discord, matterhorn, telegram, and a email client (I keep missing one of the chats and then I miss tasks that I need to do) Ideally there would be some client that can handle all of the above like franz but I can't fond one that is light weight, opensources, and keeps data local.
-- make the media keys, and screenshot keys work on my laptop
-- add a good research setup/wiki/bibliography
+- kakoune
+  - better markdown syntax highlighting (```{.python} should use python syntax highlighting )
+  - setup kak-gdb
+  - setup kakoune gdb (https://github.com/occivink/kakoune-gdb)
+  - setup kak-sudo-write
+  - make fzf ignore .git directory (https://github.com/andreyorst/fzf.kak)
+  - kak remote file editing?
+- xmonad
+  - add blurlock

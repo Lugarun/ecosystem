@@ -51,20 +51,5 @@ map global user d ':edit "%val{config}/../nixpkgs/home.nix"<ret>' -docstring 'ed
 map global user c ':comment-line <ret>' -docstring 'toggle line comments'
 map global user f ':fzf-mode <ret>' -docstring 'fzf'
 
-map global user | ':tmux-repl-horizontal <ret>' -docstring 'create repl vertically inside tmux'
-map global user s ':repl <ret>' -docstring 'send selection to repl'
-
-# Wants
-# ─────────────────────────
-
-# better markdown syntax highlighting (```{.python} should use python syntax highlighting )
-# markdown send codeblock to repl
-# tmux new vertical command
-# fix or remove user mapped commands like surround and vertical select
-# fix kak-explore
-# make space in normalmode the user mode keybinding
-# setup kak-connect better
-# setup kak-lsp to be fast
-# setup easy motion
-# setup kak-gdb
-# setup kak-sudo-write
+map global user | ':repl <ret>' -docstring 'create repl vertically inside tmux'
+map global user s ':send-text <ret>' -docstring 'send selection to repl'
