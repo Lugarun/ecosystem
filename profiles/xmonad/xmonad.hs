@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.NoBorders(toggleBorder)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
@@ -28,6 +29,7 @@ myAdditionalKeys =
   , ((mod4Mask, xK_p), spawn myLauncher)
   , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
   , ((mod4Mask, xK_u), spawn "passmenu -i")
+  , ((mod4Mask, xK_b), withFocused toggleBorder)
   , ((mod4Mask, xK_Return), spawn myTerminal)
   , ((mod4Mask .|. shiftMask , xK_q), kill)
   , ((mod4Mask .|. shiftMask , xK_Escape), io (exitWith ExitSuccess))
