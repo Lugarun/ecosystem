@@ -101,7 +101,7 @@
   };
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
-  services.gpg-agent.pinentryFlavor = "curses";
+  services.gpg-agent.pinentryFlavor = "qt";
   programs.password-store.enable = true;
 
 }
