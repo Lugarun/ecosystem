@@ -6,6 +6,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Spacing
+import XMonad.Actions.CycleWS(nextScreen)
 import System.IO
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
@@ -25,11 +26,13 @@ myManageHook = composeAll
   ]
 
 myAdditionalKeys = 
-  [ ((mod4Mask, xK_l), spawn "blurlock")
+  [ ((mod4Mask, xK_l), spawn "i3lock -n -c 000000")
   , ((mod4Mask, xK_p), spawn myLauncher)
   , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
   , ((mod4Mask, xK_u), spawn "passmenu -i")
   , ((mod4Mask, xK_b), withFocused toggleBorder)
+  , ((mod4Mask, xK_e), nextScreen)
+  , ((mod4Mask, xK_w), nextScreen)
   , ((mod4Mask, xK_Return), spawn myTerminal)
   , ((mod4Mask .|. shiftMask , xK_q), kill)
   , ((mod4Mask .|. shiftMask , xK_Escape), io (exitWith ExitSuccess))

@@ -4,11 +4,17 @@
     pkgs.networkmanager_dmenu
     pkgs.dmenu
     pkgs.alacritty
+    pkgs.i3lock
   ];
   xsession.enable = true;
   xsession.windowManager.xmonad.enable = true;
   xsession.windowManager.xmonad.enableContribAndExtras = true;
   xsession.windowManager.xmonad.config = ./xmonad.hs;
+
+  services.screen-locker = {
+    enable = true;
+    lockCmd = "\${pkgs.i3lock}/bin/i3lock -n -c 000000";
+  };
 
   # run autorandr -c to trigger the setting
   programs.autorandr = {

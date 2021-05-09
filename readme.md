@@ -34,5 +34,3 @@ secrets # contains my secrets using git-crypt
   - setup kak-sudo-write
   - make fzf ignore .git directory (https://github.com/andreyorst/fzf.kak)
   - kak remote file editing?
-- xmonad
-  - add blurlock
