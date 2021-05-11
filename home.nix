@@ -33,11 +33,13 @@
 
   home.packages = [
       pkgs.gnome3.gnome-screenshot
-      pkgs.zoom
+      pkgs.zoom-us
+      pkgs.zip
       pkgs.blueberry
       pkgs.kdeApplications.okular
       pkgs.simplescreenrecorder
       pkgs.sxiv
+      pkgs.imv
       pkgs.vlc
       pkgs.bc
       pkgs.youtubeDL

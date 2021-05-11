@@ -26,6 +26,7 @@
     enable = true;
     enableXinerama = true;
     imageDirectory = "%h/Pictures/wallpaper";
+    interval = "1h";
   };
 
   # run autorandr -c to trigger the setting
