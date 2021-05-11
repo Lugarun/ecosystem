@@ -46,6 +46,7 @@ in {
     pkgs.fzy
     pkgs.fd
     pkgs.universal-ctags
+    pkgs.xdotool
 
     pkgs.kak-lsp
     pkgs.python38Packages.python-language-server

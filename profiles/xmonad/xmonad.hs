@@ -3,6 +3,7 @@ import XMonad.Actions.NoBorders(toggleBorder)
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.BinarySpacePartition
@@ -73,7 +74,8 @@ defaults = defaultConfig
   } `additionalKeys` myAdditionalKeys
 
 main = do
-  xmonad $ navigation2D def { defaultTiledNavigation = sideNavigation }
+  xmonad $ ewmh
+         $ navigation2D def { defaultTiledNavigation = sideNavigation }
                         (xK_k, xK_h, xK_j, xK_l)
                         [(mod4Mask, windowGo),
                          (mod4Mask .|. shiftMask, windowSwap)]

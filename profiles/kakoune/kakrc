@@ -35,7 +35,7 @@ alias global vs vsplit
 # Default terminal
 # ─────────────────────────
 hook global ModuleLoaded "x11" %{
-  set-option global termcmd "alacritty"
+  set-option global termcmd "alacritty -e sh -c"
 }
 
 
