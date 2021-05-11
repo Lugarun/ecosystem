@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Actions.NoBorders(toggleBorder)
+import XMonad.Actions.Navigation2D
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
@@ -26,7 +27,7 @@ myManageHook = composeAll
   ]
 
 myAdditionalKeys = 
-  [ ((mod4Mask, xK_l), spawn "i3lock -n -c 000000")
+  [ ((mod4Mask, xK_c), spawn "i3lock -n -c 000000")
   , ((mod4Mask, xK_p), spawn myLauncher)
   , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
   , ((mod4Mask, xK_u), spawn "passmenu -i")
@@ -46,7 +47,6 @@ myAdditionalKeys =
   , ((mod4Mask .|. mod1Mask .|. controlMask , xK_j     ), sendMessage $ ShrinkFrom D)
   , ((mod4Mask .|. mod1Mask .|. controlMask , xK_k     ), sendMessage $ ShrinkFrom U)
   , ((mod4Mask,                           xK_r     ), sendMessage Rotate)
-  , ((mod4Mask,                           xK_s     ), sendMessage Swap)
   , ((0, xF86XK_AudioLowerVolume ), spawn "amixer -q set Master 2%- unmute")
   , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 2%+ unmute")
   , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
@@ -58,7 +58,7 @@ myAdditionalKeys =
 defaults = defaultConfig
   { terminal        = myTerminal
   , modMask         = mod4Mask
-  , borderWidth     = 1
+  , borderWidth     = 0
   , workspaces = myWorkspaces
 
   -- Hooks
@@ -73,4 +73,9 @@ defaults = defaultConfig
   } `additionalKeys` myAdditionalKeys
 
 main = do
-  xmonad defaults
+  xmonad $ navigation2D def { defaultTiledNavigation = sideNavigation }
+                        (xK_k, xK_h, xK_j, xK_l)
+                        [(mod4Mask, windowGo),
+                         (mod4Mask .|. shiftMask, windowSwap)]
+                        False
+         $ defaults

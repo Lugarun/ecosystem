@@ -4,6 +4,7 @@
     enable = true;
     settings = {
       font.size = 10;
+      background_opacity = 0.98;
       colors = {
         primary = {
           background = config.colors.background;

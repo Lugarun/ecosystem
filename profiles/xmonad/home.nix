@@ -11,9 +11,21 @@
   xsession.windowManager.xmonad.enableContribAndExtras = true;
   xsession.windowManager.xmonad.config = ./xmonad.hs;
 
+  services.picom = {
+    enable = true;
+    blur = true;
+    inactiveDim = "0.2";
+  };
+
   services.screen-locker = {
     enable = true;
     lockCmd = "\${pkgs.i3lock}/bin/i3lock -n -c 000000";
+  };
+
+  services.random-background = {
+    enable = true;
+    enableXinerama = true;
+    imageDirectory = "%h/Pictures/wallpaper";
   };
 
   # run autorandr -c to trigger the setting
