@@ -5,6 +5,9 @@
     pkgs.dmenu
     pkgs.alacritty
     pkgs.i3lock
+    pkgs.dunst
+    pkgs.acpi
+    pkgs.pamixer
   ];
   xsession.enable = true;
   xsession.windowManager.xmonad.enable = true;
@@ -15,6 +18,49 @@
     enable = true;
     blur = true;
     inactiveDim = "0.2";
+  };
+
+  services.dunst = {
+    enable = true;
+    iconTheme = {
+        name = "Adwaita";
+        package = pkgs.gnome3.adwaita-icon-theme;
+    };
+    settings = {
+      global = {
+        geometry = "0x0-20+20";
+        indicate_hidden = "yes";
+        shrink = "no";
+        separator_height = 0;
+        padding = 32;
+        horizontal_padding = 32;
+        frame_width = 2;
+        sort = "no";
+        transparency = 1;
+        font = "Monospace 8";
+        markup = "full";
+        format = "%s\n%b";
+        word_wrap = "yes";
+        ignore_newline = "no";
+        icon_position = "left";
+        max_icon_size = 32;
+      };
+      urgency_low = {
+        background = "#262628";
+        foreground = "#ABABA4";
+        frame_color = "#262628";
+      };
+      urgency_normal = {
+        background = "#262628";
+        foreground = "#ABABA4";
+        frame_color = "#262628";
+      };
+      urgency_critical = {
+        background = "#262628";
+        foreground = "#ABABA4";
+        frame_color = "#262628";
+      };
+    };
   };
 
   services.screen-locker = {
