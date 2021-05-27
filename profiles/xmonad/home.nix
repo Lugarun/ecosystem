@@ -32,8 +32,8 @@
         indicate_hidden = "yes";
         shrink = "no";
         separator_height = 0;
-        padding = 32;
-        horizontal_padding = 32;
+        padding = 10;
+        horizontal_padding = 10;
         frame_width = 2;
         sort = "no";
         transparency = 1;

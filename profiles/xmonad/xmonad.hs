@@ -12,14 +12,52 @@ import XMonad.Actions.CycleWS(nextScreen)
 import System.IO
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
-
--- Some defaults
+import Data.Tree
+import XMonad.Actions.TreeSelect
+import XMonad.Hooks.WorkspaceHistory
+import qualified XMonad.StackSet as W
+import qualified Data.Map as M
 
 myTerminal = "alacritty"
 
 myLauncher   = "dmenu_run -m 1 -i"
 
-myWorkspaces = map show [1..6]
+myTreeConf = TSConfig { ts_hidechildren = True
+                      , ts_background   = 0xc01d1f21
+                      , ts_font         = "xft:Sans-16"
+                      , ts_node         = (0xffc5c8c6, 0xff1d1f21)
+                      , ts_nodealt      = (0xffc5c8c6, 0xff1d1f21)
+                      , ts_highlight    = (0xff1d1f21, 0xffc5c8c6)
+                      , ts_extra        = 0xffc5c8c6
+                      , ts_node_width   = 30
+                      , ts_node_height  = 30
+                      , ts_originX      = 0
+                      , ts_originY      = 0
+                      , ts_indent       = 10
+                      , ts_navigate     = treeNavigation
+                      }
+
+treeNavigation = M.fromList
+    [ ((0, xK_Escape), cancel)
+    , ((0, xK_Return), select)
+    , ((0, xK_space),  select)
+    , ((0, xK_Up),     movePrev)
+    , ((0, xK_Down),   moveNext)
+    , ((0, xK_Left),   moveParent)
+    , ((0, xK_Right),  moveChild)
+    , ((0, xK_k),      movePrev)
+    , ((0, xK_j),      moveNext)
+    , ((0, xK_h),      moveParent)
+    , ((0, xK_l),      moveChild)
+    , ((0, xK_o),      moveHistBack)
+    , ((0, xK_i),      moveHistForward)
+    ]
+
+myWorkspaces :: Forest String
+myWorkspaces = [ Node "a" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]
+               , Node "b" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]
+               , Node "c" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]
+               , Node "d" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]]
 
 myLayout = avoidStruts (smartSpacingWithEdge 3 emptyBSP)
 
@@ -38,6 +76,8 @@ myAdditionalKeys =
   , ((mod4Mask, xK_s), spawn "dunstctl set-paused toggle")
   , ((mod4Mask, xK_e), nextScreen)
   , ((mod4Mask, xK_w), nextScreen)
+  , ((mod4Mask, xK_f), treeselectWorkspace myTreeConf myWorkspaces W.greedyView)
+  , ((mod4Mask .|. shiftMask, xK_f), treeselectWorkspace myTreeConf myWorkspaces W.shift)
   , ((mod4Mask, xK_minus), decWindowSpacing 1)
   , ((mod4Mask, xK_equal), incWindowSpacing 1)
   , ((mod4Mask, xK_Return), spawn myTerminal)
@@ -67,16 +107,13 @@ defaults = defaultConfig
   { terminal        = myTerminal
   , modMask         = mod4Mask
   , borderWidth     = 0
-  , workspaces = myWorkspaces
+  , workspaces = toWorkspaces myWorkspaces
 
   -- Hooks
   , manageHook      = manageDocks <+> manageHook defaultConfig
   , layoutHook      = myLayout
   , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
-  , logHook         = dynamicLogWithPP xmobarPP
-      {  ppTitle = xmobarColor "green" "" . shorten 50
-      , ppHiddenNoWindows = xmobarColor "grey" ""
-      }
+  , logHook         = workspaceHistoryHook
   , startupHook = spawn "bash ~/.xmonad/autostart"
   } `additionalKeys` myAdditionalKeys
 
