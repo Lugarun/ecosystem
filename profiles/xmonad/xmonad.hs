@@ -31,8 +31,8 @@ myTreeConf = TSConfig { ts_hidechildren = True
                       , ts_extra        = 0xffc5c8c6
                       , ts_node_width   = 30
                       , ts_node_height  = 30
-                      , ts_originX      = 0
-                      , ts_originY      = 0
+                      , ts_originX      = 60
+                      , ts_originY      = 60
                       , ts_indent       = 10
                       , ts_navigate     = treeNavigation
                       }
