@@ -32,6 +32,7 @@
 
 
   home.packages = [
+      pkgs.obs-studio
       pkgs.gnome3.gnome-screenshot
       pkgs.zoom-us
       pkgs.zip
@@ -40,6 +41,7 @@
       pkgs.simplescreenrecorder
       pkgs.sxiv
       pkgs.imv
+      pkgs.gnome3.eog
       pkgs.vlc
       pkgs.bc
       pkgs.youtubeDL
@@ -89,10 +91,8 @@
 
   programs.htop = {
     enable = true;
-    treeView = true;
     vimMode = true;
     showProgramPath = false;
-
   };
 
   programs.autorandr = {
