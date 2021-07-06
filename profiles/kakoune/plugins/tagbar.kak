@@ -7,6 +7,6 @@ hook global WinSetOption filetype=tagbar %{
   # matching characters
 }
 
-hook global WinSetOption filetype=(c|cpp|rust|sh|python|haskell|markdown|latex) %{
-    tagbar-enable
-}
+# hook global WinSetOption filetype=(c|cpp|rust|sh|python|haskell|markdown|latex) %{
+#     tagbar-enable
+# }
