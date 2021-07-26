@@ -53,3 +53,16 @@ map global user f ':fzf-mode <ret>' -docstring 'fzf'
 
 map global user | ':repl <ret>' -docstring 'create repl vertically inside tmux'
 map global user s ':send-text <ret>' -docstring 'send selection to repl'
+
+# Functions
+# ─────────────────────────
+
+define-command -docstring "cite using zotero, zotero needs to be open" zoterocite \
+  %{
+    set-register dquote %sh{
+      curl -s "http://127.0.0.1:23119/better-bibtex/cayw?format=pandoc&brackets=1"
+    }
+    execute-keys p
+  }
+
+define-command -docstring "evaluate selected kakoune script" do %{ eval %val{selection} }
