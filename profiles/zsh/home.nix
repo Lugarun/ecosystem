@@ -10,7 +10,6 @@
   programs.starship.enableZshIntegration = true;
   programs.starship.settings = {
     add_newline = false;
-    character.symbol = "➜";
     line_break.disabled = true;
   };
 
