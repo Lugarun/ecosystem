@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
-  zlinks = import ./zlinks.nix { pkgs = pkgs; };
+  emanote-open = import ./emanote-open.nix;
 in {
   home.packages = [
-    zlinks
+    emanote-open
   ];
 }
