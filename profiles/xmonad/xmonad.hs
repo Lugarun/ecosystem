@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Actions.NoBorders(toggleBorder)
+import XMonad.Actions.SpawnOn
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -71,6 +72,7 @@ myAdditionalKeys =
   , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
   , ((mod4Mask, xK_u), spawn "passmenu -i")
   , ((mod4Mask, xK_t), spawn "bash ~/.config/nixpkgs/profiles/xmonad/dunst/time.sh")
+  , ((mod4Mask .|. shiftMask, xK_t), withFocused $ windows . W.sink)
   , ((mod4Mask, xK_b), spawn "bash ~/.config/nixpkgs/profiles/xmonad/dunst/battery.sh")
   , ((mod4Mask, xK_v), spawn "bash ~/.config/nixpkgs/profiles/xmonad/dunst/volume.sh")
   , ((mod4Mask, xK_s), spawn "dunstctl set-paused toggle")
@@ -95,6 +97,7 @@ myAdditionalKeys =
   , ((mod4Mask .|. mod1Mask .|. controlMask , xK_j     ), sendMessage $ ShrinkFrom D)
   , ((mod4Mask .|. mod1Mask .|. controlMask , xK_k     ), sendMessage $ ShrinkFrom U)
   , ((mod4Mask,                           xK_r     ), sendMessage Rotate)
+  , ((mod4Mask .|. shiftMask,             xK_r     ), sendMessage RotateL)
   , ((0, xF86XK_AudioLowerVolume ), spawn "amixer -q set Master 2%- unmute")
   , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 2%+ unmute")
   , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
@@ -114,7 +117,11 @@ defaults = defaultConfig
   , layoutHook      = myLayout
   , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
   , logHook         = workspaceHistoryHook
-  , startupHook = spawn "bash ~/.xmonad/autostart"
+  , startupHook = do
+      spawn "bash ~/.xmonad/autostart"
+      spawnOn "a" "chromium --new-window http://localhost:8000"
+      spawnOn "a" "alacritty -e bash -c 'cd ~/projects/zettelkasten; tmux new-session -s zettelkasten \"kak -s zettelkasten\"'"
+      spawnOn "b" "alacritty -e bash -c btop"
   } `additionalKeys` myAdditionalKeys
 
 main = do

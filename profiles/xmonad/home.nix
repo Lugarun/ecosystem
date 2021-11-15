@@ -101,13 +101,13 @@
           "HDMI-A-0" = {
             enable = true;
             primary = true;
-            position = "1920x0";
+            position = "0x0";
             mode = "1920x1080";
           };
           "eDP" = {
             enable = true;
             primary = false;
-            position = "0x0";
+            position = "0x1080";
             mode = "1920x1080";
           };
         };
