@@ -16,6 +16,7 @@
 let
   kak-kakboard = import ./kak-kakboard.nix { pkgs = pkgs; };
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
+  kakoune-idris = import ./kak-kakoune-idris.nix { pkgs = pkgs; };
   pkgs-unstable = import <nixpkgs-unstable> {};
   kak-overlay = final: prev: {
     kakoune = pkgs-unstable.kakoune.override {
@@ -24,6 +25,7 @@ let
         kak-kakboard
         final.kakounePlugins.kak-powerline
         final.kakounePlugins.kak-fzf
+        kakoune-idris
       ];
     };
   };
@@ -56,6 +58,7 @@ in {
     pkgs.fasd
     pkgs.nix-linter
     pkgs.nixpkgs-fmt
+    pkgs.nodejs # for idris
     (pkgs.nerdfonts.override {
       fonts = [ "DejaVuSansMono" ];})
   ];

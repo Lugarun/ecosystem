@@ -43,6 +43,16 @@ hook global ModuleLoaded "x11" %{
 # ─────────────────────────
 hook global WinCreate .* %{ kakboard-enable  }
 
+# Emanote
+# ─────────────────────────
+
+define-command emanote %{ nop %sh{
+    chromium "$(emanote-open "$kak_buffile")" > /dev/null 2>&1 < /dev/null & 
+} }
+
+define-command md-imv %{ nop %sh{
+    (imv "$(dirname $kak_buffile)/$kak_selections") > /dev/null 2>&1 < /dev/null & 
+} }
 
 # Key Bindings
 # ─────────────────────────
@@ -51,8 +61,13 @@ map global user d ':edit "%val{config}/../nixpkgs/home.nix"<ret>' -docstring 'ed
 map global user c ':comment-line <ret>' -docstring 'toggle line comments'
 map global user f ':fzf-mode <ret>' -docstring 'fzf'
 
-map global user | ':repl <ret>' -docstring 'create repl vertically inside tmux'
-map global user s ':send-text <ret>' -docstring 'send selection to repl'
+map global user | ':repl-new <ret>' -docstring 'create repl vertically inside tmux'
+map global user s ':repl-send-text <ret>' -docstring 'send selection to repl'
+
+map global user i '<a-i>c```[^\n]*\n,```<ret>' -docstring 'select markdown code block'
+map global user e ':eval %reg{.}<ret>' -docstring 'eval kakoune config selection'
+map global user o ':emanote <ret>' -docstring 'open current file in emanote via chromium'
+map global user v '<a-i>(:md-imv <ret>' -docstring 'open current markdown link with imv'
 
 # Functions
 # ─────────────────────────
