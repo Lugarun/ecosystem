@@ -13,13 +13,10 @@
     ./profiles/git/home.nix
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
-    ./profiles/mopidy/home.nix
-    ./profiles/matterhorn/home.nix
     ./profiles/wiki/home.nix
     ./profiles/bandwidth-blame/home.nix
     ./profiles/chromium/home.nix
     ./profiles/remarkable/home.nix
-    ./profiles/dev/salz/home.nix
   ];
 
   # Home-manager setup
