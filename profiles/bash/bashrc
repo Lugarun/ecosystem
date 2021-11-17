@@ -2,6 +2,9 @@ set -o vi
 export EDITOR=kak
 export BROWSER=firefox
 export XDG_CONFIG_HOME=/home/lukas/.config
+export DSTASK_GIT_REPO=/home/lukas/projects/task
+alias t=dstask
+alias dr="xargs dateround now"
 alias w3md="(cd ~/Downloads; w3md duckduckgo.com)"
 alias cp="cp -i"
 eval "$(fasd --init auto)"

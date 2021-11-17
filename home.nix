@@ -1,17 +1,15 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
-    # ./profiles/emacs/home.nix
     ./profiles/zathura/home.nix
-    ./profiles/taskwarrior/home.nix
     ./profiles/alacritty/home.nix
+    ./profiles/kitty/home.nix
     ./profiles/colors/home.nix
     ./profiles/tmux/home.nix
     ./profiles/xmonad/home.nix
     ./profiles/bash/home.nix
     ./profiles/zsh/home.nix
-    ./profiles/firefox/home.nix
     ./profiles/git/home.nix
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
@@ -32,12 +30,20 @@
 
 
   home.packages = [
+      pkgs.dstask
+      pkgs.bpytop
+      pkgs.dateutils
+      pkgs.remind
+      pkgs.wyrd
+      pkgs.texlive.combined.scheme-full
+      pkgs.sqlite
+      pkgs.fzf
+      pkgs.ripgrep
       pkgs.obs-studio
       pkgs.gnome3.gnome-screenshot
       pkgs.zoom-us
       pkgs.zip
       pkgs.blueberry
-      pkgs.kdeApplications.okular
       pkgs.simplescreenrecorder
       pkgs.sxiv
       pkgs.imv
@@ -67,13 +73,14 @@
       pkgs.youtube-dl
       pkgs.spotify
       pkgs.wpgtk
-      pkgs.syncthing
       pkgs.unzip
       pkgs.udisks
-      pkgs.zathura
       pkgs.mplayer
-      pkgs.steam
+      pkgs.gnumake
+      pkgs.jq
       ];
+
+  home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";
 
   gtk = {
       enable = true;
@@ -87,12 +94,8 @@
           };
       };
 
-  services.syncthing.enable = true;
-
   programs.htop = {
     enable = true;
-    vimMode = true;
-    showProgramPath = false;
   };
 
   programs.autorandr = {

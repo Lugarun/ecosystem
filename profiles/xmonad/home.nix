@@ -3,7 +3,6 @@
   home.packages = [
     pkgs.networkmanager_dmenu
     pkgs.dmenu
-    pkgs.alacritty
     pkgs.i3lock
     pkgs.dunst
     pkgs.acpi

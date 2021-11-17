@@ -19,7 +19,7 @@ import XMonad.Hooks.WorkspaceHistory
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
-myTerminal = "alacritty"
+myTerminal = "kitty"
 
 myLauncher   = "dmenu_run -m 1 -i"
 
@@ -55,10 +55,10 @@ treeNavigation = M.fromList
     ]
 
 myWorkspaces :: Forest String
-myWorkspaces = [ Node "a" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]
-               , Node "b" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]
-               , Node "c" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]
-               , Node "d" [Node "1" [], Node "2" [], Node "3" [], Node "4" []]]
+myWorkspaces = [ Node "a" [Node "b" [], Node "c" [], Node "d" [], Node "e" []]
+               , Node "f" [Node "g" [], Node "h" [], Node "i" [], Node "j" []]
+               , Node "k" [Node "l" [], Node "m" [], Node "n" [], Node "o" []]
+               , Node "p" [Node "q" [], Node "r" [], Node "s" [], Node "t" []]]
 
 myLayout = avoidStruts (smartSpacingWithEdge 3 emptyBSP)
 
@@ -120,8 +120,8 @@ defaults = defaultConfig
   , startupHook = do
       spawn "bash ~/.xmonad/autostart"
       spawnOn "a" "chromium --new-window http://localhost:8000"
-      spawnOn "a" "alacritty -e bash -c 'cd ~/projects/zettelkasten; tmux new-session -s zettelkasten \"kak -s zettelkasten\"'"
-      spawnOn "b" "alacritty -e bash -c btop"
+      spawnOn "a" "alacritty -e bash -c 'source ~/bashrc; cd ~/projects/zettelkasten; tmux new-session -s zettelkasten \"kak -s zettelkasten\";'"
+      spawnOn "b" "alacritty -e bash -c 'source ~/bashrc; cd ~/projects/calendar; tmux new-session -s calendar \"wyrd global.rem\";'"
   } `additionalKeys` myAdditionalKeys
 
 main = do
