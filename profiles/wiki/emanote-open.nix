@@ -1,6 +1,5 @@
-let
-  pkgs = import <nixpkgs-unstable> {};
-in pkgs.stdenv.mkDerivation {
+pkgs:
+pkgs.stdenv.mkDerivation {
   name = "emanote-open";
   src = ./.;
   buildInputs = [
