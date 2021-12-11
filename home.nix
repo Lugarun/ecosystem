@@ -14,7 +14,6 @@
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
     ./profiles/wiki/home.nix
-    ./profiles/bandwidth-blame/home.nix
     ./profiles/chromium/home.nix
     ./profiles/remarkable/home.nix
   ];

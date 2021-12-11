@@ -17,34 +17,17 @@ let
   kak-kakboard = import ./kak-kakboard.nix { pkgs = pkgs; };
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
   kakoune-idris = import ./kak-kakoune-idris.nix { pkgs = pkgs; };
-  pkgs-unstable = import <nixpkgs-unstable> {};
-  kak-overlay = final: prev: {
-    kakoune = pkgs-unstable.kakoune.override {
-      plugins = [
-        tagbar
-        kak-kakboard
-        final.kakounePlugins.kak-powerline
-        final.kakounePlugins.kak-fzf
-        kakoune-idris
-      ];
-    };
-  };
-  lsp-overlay = final: prev: {
-    python38Packages.python-language-server = prev.python38Packages.python-language-server.override {
-      providers = [];
-      autopep8 = null;
-      mccabe = null;
-      pycodestyle = null;
-      pydocstyle = null;
-      pyflakes = null;
-      pylint = null;
-      rope = null;
-      yapf = null;
-    };
-  };
 in {
   home.packages = [
-    pkgs.kakoune
+    (pkgs.wrapKakoune pkgs.kakoune-unwrapped {
+      configure = { plugins = [
+        tagbar
+        kak-kakboard
+        pkgs.kakounePlugins.kak-powerline
+        pkgs.kakounePlugins.kak-fzf
+        kakoune-idris
+      ]; };
+    })
     pkgs.fzy
     pkgs.fd
     pkgs.universal-ctags
@@ -61,11 +44,6 @@ in {
     pkgs.nodejs # for idris
     (pkgs.nerdfonts.override {
       fonts = [ "DejaVuSansMono" ];})
-  ];
-
-  nixpkgs.overlays = [
-    kak-overlay
-    lsp-overlay
   ];
 
   fonts.fontconfig.enable = true;

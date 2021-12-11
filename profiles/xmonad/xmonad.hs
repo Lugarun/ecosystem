@@ -19,7 +19,7 @@ import XMonad.Hooks.WorkspaceHistory
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
-myTerminal = "kitty"
+myTerminal = "alacritty"
 
 myLauncher   = "dmenu_run -m 1 -i"
 

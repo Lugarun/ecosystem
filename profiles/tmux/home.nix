@@ -1,11 +1,5 @@
 { pkgs, ... }:
-let
-  ide = import ./ide.nix { pkgs = pkgs; };
-in 
 {
-  home.packages = [
-    ide
-  ];
   programs.tmux = {
     enable = true;
     plugins = [
