@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -26,7 +26,16 @@
 
 
   home.packages = [
+      pkgs.emacs
+      pkgs.ripgrep
+      pkgs.coreutils
+      pkgs.fd
+      pkgs.clang
+      pkgs.nixfmt
+      pkgs.graphviz
       pkgs.dstask
+      pkgs.dvtm
+      pkgs.abduco
       pkgs.bpytop
       pkgs.dateutils
       pkgs.remind
