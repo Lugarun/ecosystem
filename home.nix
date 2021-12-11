@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./modules/git.nix
+    ./modules/emacs.nix
     ./profiles/zathura/home.nix
     ./profiles/alacritty/home.nix
     ./profiles/kitty/home.nix
@@ -26,13 +28,7 @@
 
 
   home.packages = [
-      pkgs.emacs
-      pkgs.ripgrep
-      pkgs.coreutils
-      pkgs.fd
-      pkgs.clang
       pkgs.nixfmt
-      pkgs.graphviz
       pkgs.dstask
       pkgs.dvtm
       pkgs.abduco
