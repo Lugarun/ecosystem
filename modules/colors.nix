@@ -54,11 +54,8 @@ in
           color14 = color "color14";
           color15 = color "color15";
         };
-
-
       };
+      default = stdDark;
     };
-
   };
-  config.colors = stdDark;
 }
