@@ -3,16 +3,14 @@
 {
   imports = [
     ./modules/git.nix
-    ./modules/emacs.nix
+    ./modules/emacs/emacs.nix
+    ./modules/bash/bash.nix
     ./profiles/zathura/home.nix
     ./profiles/alacritty/home.nix
     ./profiles/kitty/home.nix
     ./profiles/colors/home.nix
     ./profiles/tmux/home.nix
     ./profiles/xmonad/home.nix
-    ./profiles/bash/home.nix
-    ./profiles/zsh/home.nix
-    ./profiles/git/home.nix
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
     ./profiles/wiki/home.nix

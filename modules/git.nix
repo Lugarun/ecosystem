@@ -2,7 +2,7 @@
 
 {
   config = {
-    home.pakages = [
+    home.packages = [
       pkgs.lazygit
       pkgs.git-crypt
     ];
