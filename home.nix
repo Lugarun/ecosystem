@@ -5,11 +5,11 @@
     ./modules/git.nix
     ./modules/emacs/emacs.nix
     ./modules/bash/bash.nix
+    ./modules/tmux/tmux.nix
     ./profiles/zathura/home.nix
     ./profiles/alacritty/home.nix
     ./profiles/kitty/home.nix
     ./profiles/colors/home.nix
-    ./profiles/tmux/home.nix
     ./profiles/xmonad/home.nix
     ./profiles/kakoune/home.nix
     ./profiles/secrets/home.nix
