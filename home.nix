@@ -2,20 +2,16 @@
 
 {
   imports = [
-    ./modules/git.nix
-    ./modules/emacs/emacs.nix
+    ./modules/alacritty.nix
     ./modules/bash/bash.nix
+    ./modules/chromium.nix
+    ./modules/colors.nix
+    ./modules/ecosystem_path.nix
+    ./modules/emacs/emacs.nix
+    ./modules/git.nix
     ./modules/tmux/tmux.nix
-    ./profiles/zathura/home.nix
-    ./profiles/alacritty/home.nix
-    ./profiles/kitty/home.nix
-    ./profiles/colors/home.nix
-    ./profiles/xmonad/home.nix
-    ./profiles/kakoune/home.nix
-    ./profiles/secrets/home.nix
-    ./profiles/wiki/home.nix
-    ./profiles/chromium/home.nix
-    ./profiles/remarkable/home.nix
+    ./modules/xmonad/xmonad.nix
+    ./modules/zathura.nix
   ];
 
   # Home-manager setup

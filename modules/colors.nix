@@ -28,7 +28,7 @@ let
   };
 in
 {
-  options = {
+  options.ecosystem = {
     colors = lib.mkOption {
       description =
         "The colors that should be used wherever possible to theme the os.";

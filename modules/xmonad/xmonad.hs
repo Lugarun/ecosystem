@@ -71,10 +71,10 @@ myAdditionalKeys =
   , ((mod4Mask, xK_p), spawn myLauncher)
   , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
   , ((mod4Mask, xK_u), spawn "passmenu -i")
-  , ((mod4Mask, xK_t), spawn "bash ~/projects/ecosystem/profiles/xmonad/dunst/time.sh")
+  , ((mod4Mask, xK_t), spawn "bash ~/projects/ecosystem/modules/xmonad/dunst/time.sh")
   , ((mod4Mask .|. shiftMask, xK_t), withFocused $ windows . W.sink)
-  , ((mod4Mask, xK_b), spawn "bash ~/projects/ecosystem/profiles/xmonad/dunst/battery.sh")
-  , ((mod4Mask, xK_v), spawn "bash ~/projects/ecosystem/profiles/xmonad/dunst/volume.sh")
+  , ((mod4Mask, xK_b), spawn "bash ~/projects/ecosystem/modules/xmonad/dunst/battery.sh")
+  , ((mod4Mask, xK_v), spawn "bash ~/projects/ecosystem/modules/xmonad/dunst/volume.sh")
   , ((mod4Mask, xK_s), spawn "dunstctl set-paused toggle")
   , ((mod4Mask, xK_e), nextScreen)
   , ((mod4Mask, xK_w), nextScreen)
@@ -102,8 +102,8 @@ myAdditionalKeys =
   , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -q set Master 2%+ unmute")
   , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
   , ((0, xF86XK_AudioMicMute ), sequence_ [ spawn "amixer -q set Capture toggle"
-                                          , spawn "bash ~/projects/ecosystem/nixpkgs/profiles/xmonad/toggleMicLight.sh"])
-  , ((0, xF86XK_Favorites ), spawn "bash ~/projects/ecosystem/profiles/xmonad/toggleTouchpad.sh")
+                                          , spawn "bash ~/projects/ecosystem/modules/xmonad/toggleMicLight.sh"])
+  , ((0, xF86XK_Favorites ), spawn "bash ~/projects/ecosystem/modules/xmonad/toggleTouchpad.sh")
   ]
 
 defaults = defaultConfig
