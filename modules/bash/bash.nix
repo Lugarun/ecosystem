@@ -13,6 +13,8 @@
     };
     programs.dircolors.enable = true;
     programs.direnv.enable = true;
+    programs.direnv.nix-direnv.enable = true;
+    programs.direnv.nix-direnv.enableFlakes = true;
     programs.starship = {
       enable = true;
       enableBashIntegration = true;
