@@ -12,6 +12,7 @@
     ./modules/tmux/tmux.nix
     ./modules/xmonad/xmonad.nix
     ./modules/zathura.nix
+    ./modules/zotero/zotero.nix
   ];
 
   # Home-manager setup
