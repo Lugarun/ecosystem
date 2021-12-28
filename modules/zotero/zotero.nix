@@ -7,6 +7,7 @@ in {
       pkgs.rmapi
       pkgs.zotero-remarkable
     ];
+    # TODO /home/lukas/projects needs to be manually setup with zotero and created
     systemd.user.services.zotero-remarkable = {
       Unit = {
         Description = "Sync zotero files with the remarkable tablet.";
