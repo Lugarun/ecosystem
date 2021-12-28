@@ -49,7 +49,7 @@
       pkgs.youtubeDL
       pkgs.xournal
       pkgs.killall
-      pkgs.zotero
+      pkgs.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
       pkgs.restic
       pkgs.openconnect
       pkgs.scrot
