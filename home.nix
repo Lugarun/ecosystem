@@ -23,6 +23,7 @@
 
 
   home.packages = [
+      pkgs.gnome3.nautilus
       pkgs.nixfmt
       pkgs.dstask
       pkgs.dvtm
