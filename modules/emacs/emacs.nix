@@ -40,6 +40,7 @@ in {
 
       pkgs.zeromq
       pkgs.libtool
+      (pkgs.aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     ];
     home.sessionPath = [ "$HOME/.emacs.d/bin" ];
     home.sessionVariables = {
