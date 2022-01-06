@@ -96,3 +96,8 @@
     (unwind-protect (apply orig-fn args)
       (setq-default process-environment +direnv--old-process-environment
                     +direnv--old-process-environment nil))))
+
+(map! :map org-mode-map
+      :after org
+      :localleader
+        "v" #'org-latex-preview)

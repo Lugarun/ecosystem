@@ -104,6 +104,7 @@
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
   services.gpg-agent.pinentryFlavor = "qt";
+  services.gpg-agent.defaultCacheTtl = 7200;
   programs.password-store.enable = true;
 
 }
