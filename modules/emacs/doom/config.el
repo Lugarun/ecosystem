@@ -101,3 +101,9 @@
       :after org
       :localleader
         "v" #'org-latex-preview)
+
+;; Avoid duplicate emails in the sent folder when using Outlook
+(setq mu4e-sent-messages-behavior (lambda ()
+                                        (if (member (message-sendmail-envelope-from)
+                                                    '("lfschmid@uwaterloo.ca" "lfschmidt@uwaterloo.ca"))
+                                            'delete 'sent)))
