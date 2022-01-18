@@ -13,7 +13,7 @@ in {
   options.ecosystem.mail = {
     maildir = lib.mkOption {
       type = lib.types.path;
-      default = /home/lukas/projects/mail;
+      default = /home/lukas/.mail;
     };
   };
 
