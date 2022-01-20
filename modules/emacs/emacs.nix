@@ -26,7 +26,6 @@ in {
       pkgs.ripgrep
       pkgs.coreutils
       pkgs.fd
-      pkgs.clang
       pkgs.python3
       pkgs.sqlite
 
@@ -65,6 +64,7 @@ in {
           };
           realName = "Lukas Schmidt";
           msmtp.enable = true;
+          mu.enable = true;
         };
         Uwaterloo = {
           address = "lfschmid@uwaterloo.ca";
@@ -98,6 +98,7 @@ in {
             port = 1025;
             tls.enable = false;
           };
+          mu.enable = true;
         };
       };
     };
@@ -105,15 +106,17 @@ in {
     programs = {
       msmtp.enable = true;
       mbsync.enable = true;
+      mu.enable = true;
     };
 
+    # Need to run mu init -m $maildir once before you can begin
     systemd.user.services.mbsync = {
       Unit = { Description = "mbsync mailbox synchronization"; };
       Service = {
         Type = "oneshot";
         ExecStart =
           "${pkgs.isync}/bin/mbsync --all";
-        ExecStop = "${pkgs.mu}/bin/mu index -m ${builtins.toString cfg.maildir}";
+        ExecStop = "${pkgs.mu}/bin/mu index";
         Environment = "PASSWORD_STORE_DIR=/home/lukas/.local/share/password-store";
       };
     };

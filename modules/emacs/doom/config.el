@@ -118,3 +118,13 @@
               (ansi-color-context-region nil))
           (ansi-color-apply-on-region beg end))))))
 (add-hook 'org-babel-after-execute-hook 'ek/babel-ansi)
+
+(defun org-redisplay-ansi-source-blocks ()
+  "Refresh the display of ANSI text source blocks."
+  (interactive)
+  (org-element-map (org-element-parse-buffer) 'src-block
+    (lambda (src)
+      (when (equalp "ansi" (org-element-property :language src))
+        (let ((begin (org-element-property :begin src))
+              (end (org-element-property :end src)))
+          (ansi-color-apply-on-region begin end))))))
