@@ -69,6 +69,7 @@ myManageHook = composeAll
 myAdditionalKeys = 
   [ ((mod4Mask, xK_c), spawn "i3lock -n -c 000000")
   , ((mod4Mask, xK_p), spawn myLauncher)
+  , ((mod4Mask .|. shiftMask, xK_p), spawn "gnome-screenshot -a")
   , ((mod4Mask, xK_n), spawn "networkmanager_dmenu -i")
   , ((mod4Mask, xK_u), spawn "passmenu -i")
   , ((mod4Mask, xK_t), spawn "bash ~/projects/ecosystem/modules/xmonad/dunst/time.sh")
