@@ -48,3 +48,8 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! scad-mode)
+(package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
+(package! zotxt)
+(package! leetcode)

@@ -100,7 +100,8 @@
 (map! :map org-mode-map
       :after org
       :localleader
-        "v" #'org-latex-preview)
+        "v" #'org-latex-preview
+        "X" #'org-babel-execute-subtree)
 
 ;; Avoid duplicate emails in the sent folder when using Outlook
 (setq mu4e-sent-messages-behavior (lambda ()
@@ -128,3 +129,13 @@
         (let ((begin (org-element-property :begin src))
               (end (org-element-property :end src)))
           (ansi-color-apply-on-region begin end))))))
+
+(use-package! ox-ipynb)
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(use-package! zotxt)
+
+(use-package! leetcode)

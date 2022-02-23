@@ -23,6 +23,9 @@
 
 
   home.packages = [
+      pkgs.tab-rs
+      pkgs.lutris
+      pkgs.element-desktop
       pkgs.gnome3.nautilus
       pkgs.nixfmt
       pkgs.dstask
