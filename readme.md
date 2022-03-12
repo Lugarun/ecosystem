@@ -19,6 +19,19 @@ secrets # contains my secrets using git-crypt
 
 Note that my hardware config is done via a [different repo](https://github.com/Lugarun/biome).
 
+# Setup Steps
+
+I install this setup through the biome nixos setup.
+Here are the additional setup setps you need to take :( :
+
+1. Set the Zotero `Data Directory Location` to `/home/lukas/projects/zotero`
+2. If using emacs install then doom
+3. Run `rmapi` to authenticate rmapi with the remarkable cloud
+4. Install zotero extension (zotfile)[http://zotfile.com/] and then:
+  - Set zotfile New Files directory to the downloads folder
+  - Enable zotfile tablet ability
+  - Set zotfile location to `/home/lukas/projects/zotfile`
+
 # Inspiration
 
 - https://github.com/lovesegfault/nix-config
@@ -36,3 +49,4 @@ Note that my hardware config is done via a [different repo](https://github.com/L
   - kak remote file editing?
 - zotero
   - automatically install zotero-better-bibtex extension
+
