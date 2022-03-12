@@ -8,6 +8,7 @@
     ./modules/colors.nix
     ./modules/ecosystem_path.nix
     ./modules/emacs/emacs.nix
+    ./modules/kakoune/kakoune.nix
     ./modules/git.nix
     ./modules/tmux/tmux.nix
     ./modules/xmonad/xmonad.nix

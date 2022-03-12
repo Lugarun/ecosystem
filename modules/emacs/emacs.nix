@@ -43,7 +43,7 @@ in {
     ];
     home.sessionPath = [ "$HOME/.emacs.d/bin" ];
     home.sessionVariables = {
-      EDITOR = "emacs";
+      #EDITOR = "emacs";
       DOOMDIR = config.ecosystem.config_paths.baseDir + /modules/emacs/doom;
     };
 
