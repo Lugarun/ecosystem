@@ -9,6 +9,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Spacing
+import XMonad.Layout.Maximize
 import XMonad.Actions.CycleWS(nextScreen)
 import System.IO
 import System.Exit
@@ -60,7 +61,7 @@ myWorkspaces = [ Node "a" [Node "b" [], Node "c" [], Node "d" [], Node "e" []]
                , Node "k" [Node "l" [], Node "m" [], Node "n" [], Node "o" []]
                , Node "p" [Node "q" [], Node "r" [], Node "s" [], Node "t" []]]
 
-myLayout = avoidStruts (smartSpacingWithEdge 3 emptyBSP)
+myLayout = avoidStruts (smartSpacingWithEdge 3 emptyBSP) ||| Full
 
 myManageHook = composeAll
   [ className =? "MPlayer" --> doFloat
@@ -87,6 +88,8 @@ myAdditionalKeys =
   , ((mod4Mask .|. shiftMask , xK_q), kill)
   , ((mod4Mask .|. shiftMask , xK_Escape), io (exitWith ExitSuccess))
 
+  , ((mod4Mask, xK_comma),               sendMessage Balance)
+  , ((mod4Mask, xK_period),               sendMessage Balance)
   , ((mod4Mask, xK_space),               sendMessage Balance)
   , ((mod4Mask .|. shiftMask, xK_space), sendMessage Equalize)
   , ((mod4Mask .|. mod1Mask,               xK_l     ), sendMessage $ ExpandTowards R)
@@ -119,9 +122,8 @@ defaults = defaultConfig
   , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
   , logHook         = workspaceHistoryHook
   , startupHook = do
-      spawn "bash ~/.xmonad/autostart"
       spawnOn "a" "chromium"
-      spawnOn "b" "emacs"
+      spawnOn "b" "alacritty"
   } `additionalKeys` myAdditionalKeys
 
 main = do

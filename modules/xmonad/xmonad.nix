@@ -71,7 +71,7 @@
     services.random-background = {
       enable = true;
       enableXinerama = true;
-      imageDirectory = "%h/Pictures/wallpaper";
+      imageDirectory = "%h/projects/ecosystem/wallpapers";
       interval = "1h";
     };
 
