@@ -6,4 +6,40 @@ alias t=dstask
 alias dr="xargs dateround now"
 alias w3md="(cd ~/Downloads; w3md duckduckgo.com)"
 alias cp="cp -i"
+alias @@='$($(fc -ln -1) |& tail -1)'
 eval "$(fasd --init auto)"
+
+alias k="kcr edit"
+alias kl="kcr list"
+alias ka="kcr attach"
+alias ks="kcr-fzf-shell"
+alias kf="kcr-fzf-files"
+
+fzf_git_history () {
+  export COMMAND_PREFIX="git grep -n "
+  export COMMAND_POSTFIX='$(git rev-list --all)'
+  export FZF_DEFAULT_COMMAND="$COMMAND_PREFIX '$INITIAL_QUERY' $COMMAND_POSTFIX"
+  fzf \
+    --bind "change:reload:$COMMAND_PREFIX {q} $COMMAND_POSTFIX || true"\
+    --query "$INITIAL_QUERY" \
+    --ansi\
+    --disabled\
+    --phony\
+    --preview='echo {} | cut -d: -f-2 | xargs git show | bat -H $(echo {} | cut -d: -f3) --file-name $(echo {} | cut -d: -f2) --color=always -p'
+}
+export -f fzf_git_history
+
+rga-fzf() {
+  RG_PREFIX="rga --files-with-matches"
+  local file
+  file="$(
+    FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+      fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+        --phony -q "$1" \
+        --bind "change:reload:$RG_PREFIX {q}" \
+        --preview-window="70%:wrap"
+  )" &&
+  echo "opening $file" &&
+  xdg-open "$file"
+}
+export -f rga-fzf

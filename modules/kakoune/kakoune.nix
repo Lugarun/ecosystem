@@ -14,28 +14,27 @@
 
 { config, lib, pkgs, ... }:
 let
-  kak-kakboard = import ./kak-kakboard.nix { pkgs = pkgs; };
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
-  kakoune-idris = import ./kak-kakoune-idris.nix { pkgs = pkgs; };
-  cfg = config.ecosystem.kakoune;
 in {
   config = {
     home.packages = [
       (pkgs.wrapKakoune pkgs.kakoune-unwrapped {
         configure = { plugins = [
           tagbar
-          kak-kakboard
+          pkgs.kakounePlugins.kakboard
           pkgs.kakounePlugins.kak-powerline
-          pkgs.kakounePlugins.kak-fzf
-          kakoune-idris
+          pkgs.kakounePlugins.kakoune-rainbow
         ]; };
       })
+      pkgs.kakoune-cr
+      pkgs.guile
       pkgs.fzy
       pkgs.fd
       pkgs.universal-ctags
       pkgs.xdotool
   
       pkgs.kak-lsp
+      pkgs.parallel
       pkgs.python-language-server
       pkgs.glow
   
