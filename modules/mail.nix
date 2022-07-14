@@ -5,9 +5,9 @@ let
 in {
   # TODO Requires manual imperative handling of doom install and updates
   imports = [
-    ../git.nix
-    ../bash/bash.nix
-    ../ecosystem_path.nix
+    ./git.nix
+    ./bash/bash.nix
+    ./ecosystem_path.nix
   ];
 
   options.ecosystem.mail = {
@@ -19,33 +19,16 @@ in {
 
   config = {
     home.packages = [
-      pkgs.emacsUnstable
-      pkgs.binutils
-      pkgs.gnutls
-
-      pkgs.ripgrep
-      pkgs.coreutils
-      pkgs.fd
-      pkgs.python3
-      pkgs.sqlite
-
       pkgs.mu
       pkgs.isync
       pkgs.offlineimap
       pkgs.davmail
       pkgs.nixfmt
-      pkgs.graphviz
-      pkgs.imagemagick
 
       pkgs.zeromq
       pkgs.libtool
       (pkgs.aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     ];
-    home.sessionPath = [ "$HOME/.emacs.d/bin" ];
-    home.sessionVariables = {
-      #EDITOR = "emacs";
-      DOOMDIR = config.ecosystem.config_paths.baseDir + /modules/emacs/doom;
-    };
 
     accounts.email = {
       maildirBasePath = builtins.toString cfg.maildir;
@@ -65,6 +48,7 @@ in {
           realName = "Lukas Schmidt";
           msmtp.enable = true;
           mu.enable = true;
+          neomutt.enable = true;
         };
         Uwaterloo = {
           address = "lfschmid@uwaterloo.ca";
@@ -99,6 +83,7 @@ in {
             tls.enable = false;
           };
           mu.enable = true;
+          neomutt.enable = true;
         };
       };
     };
@@ -107,6 +92,13 @@ in {
       msmtp.enable = true;
       mbsync.enable = true;
       mu.enable = true;
+      neomutt = {
+        enable = true;
+        vimKeys = true;
+        sidebar = {
+          enable = true;
+        };
+      };
     };
 
     # Need to run mu init -m $maildir once before you can begin

@@ -5,15 +5,16 @@
     ./modules/alacritty.nix
     ./modules/bash/bash.nix
     ./modules/chromium.nix
+    ./modules/calendar/calendar.nix
     ./modules/colors.nix
     ./modules/ecosystem_path.nix
     ./modules/emacs/emacs.nix
+    ./modules/mail.nix
     ./modules/kakoune/kakoune.nix
     ./modules/git.nix
     ./modules/tmux/tmux.nix
     ./modules/xmonad/xmonad.nix
     ./modules/zathura.nix
-    ./modules/zotero/zotero.nix
   ];
 
   # Home-manager setup
@@ -24,6 +25,9 @@
 
 
   home.packages = [
+      pkgs.threema-desktop
+      pkgs.bat
+      pkgs.exa
       pkgs.tab-rs
       pkgs.lutris
       pkgs.element-desktop
@@ -51,10 +55,9 @@
       pkgs.gnome3.eog
       pkgs.vlc
       pkgs.bc
-      pkgs.youtubeDL
       pkgs.xournal
       pkgs.killall
-      pkgs.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
+      # pkgs.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
       pkgs.restic
       pkgs.openconnect
       pkgs.scrot
