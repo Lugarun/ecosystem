@@ -3,7 +3,6 @@
 {
   config = {
     home.packages = [
-      pkgs.lazygit
       pkgs.git-crypt
     ];
     programs.git = {
@@ -11,5 +10,6 @@
       userName = "Lukas Schmidt";
       userEmail= "lfschmidt.me@gmail.com";
     };
+    programs.lazygit.enable = true;
   };
 }
