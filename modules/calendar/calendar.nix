@@ -13,6 +13,7 @@ in {
 
     xdg.configFile."vdirsyncer/config".source = ../../secrets/vdirsyncer.conf;
     xdg.configFile."khal/config".source = ./khal.conf;
+    xdg.configFile."khard/khard.conf".source = ./khard.conf;
     xdg.configFile."todoman/config.py".source = ./todoman_config.py;
 
 

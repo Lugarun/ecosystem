@@ -26,6 +26,27 @@ let
     color7 = "#707880";
     color15 = "#c5c8c6";
   };
+  dracula = {
+    foreground = "#F8F8F2";
+    background = "#282A36";
+    cursorColor = "#E6E6E6";
+    color0 =     "#000000";
+    color8 =     "#4D4D4D";
+    color1 =     "#FF5555";
+    color9 =     "#FF6E67";
+    color2 =     "#50FA7B";
+    color10 =    "#5AF78E";
+    color3 =     "#F1FA8C";
+    color11 =    "#F4F99D";
+    color4 =     "#BD93F9";
+    color12 =    "#CAA9FA";
+    color5 =     "#FF79C6";
+    color13 =    "#FF92D0";
+    color6 =     "#8BE9FD";
+    color14 =    "#9AEDFE";
+    color7 =     "#BFBFBF";
+    color15 =    "#E6E6E6";
+  };
   gotham = {
     foreground = "#98d1ce";
     background = "#0a0f14";
@@ -46,6 +67,27 @@ let
     color14 = "#599caa";
     color7 = "#98d1ce";
     color15 = "#d3ebe9";
+  };
+  defaultDark = {
+    foreground  = "#d0d0d0";
+    background = "#151515";
+    cursorColor = "#d0d0d0";
+    color0 = "#151515";
+    color8 = "#505050";
+    color1 = "#ac4142";
+    color9 = "#ac4142";
+    color2 = "#90a959";
+    color10 = "#90a959";
+    color3 = "#f4bf75";
+    color11 = "#f4bf75";
+    color4 = "#6a9fb5";
+    color12 = "#6a9fb5";
+    color5 = "#aa759f";
+    color13 = "#aa759f";
+    color6 = "#75b5aa";
+    color14 = "#75b5aa";
+    color7 = "#d0d0d0";
+    color15 = "#f5f5f5";
   };
 in
 {
@@ -76,7 +118,7 @@ in
           color15 = color "color15";
         };
       };
-      default = gotham;
+      default = dracula;
     };
   };
 }

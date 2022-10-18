@@ -8,7 +8,6 @@
     ./modules/calendar/calendar.nix
     ./modules/colors.nix
     ./modules/ecosystem_path.nix
-    ./modules/emacs/emacs.nix
     ./modules/mail.nix
     ./modules/kakoune/kakoune.nix
     ./modules/git.nix
@@ -57,7 +56,7 @@
       pkgs.bc
       pkgs.xournal
       pkgs.killall
-      # pkgs.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
+      pkgs.unstable.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
       pkgs.restic
       pkgs.openconnect
       pkgs.scrot
@@ -82,6 +81,10 @@
       pkgs.mplayer
       pkgs.gnumake
       pkgs.jq
+      ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages
+        (epkgs: [ epkgs.vterm epkgs.pyenv-mode ]))
+      pkgs.sqlite
+      pkgs.gcc
       ];
 
   home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";
@@ -89,8 +92,8 @@
   gtk = {
       enable = true;
       theme = {
-          package =pkgs.arc-theme;
-          name="Arc-Dark";
+          package =pkgs.dracula-theme;
+          name="Dracula";
           };
       iconTheme = {
           package = pkgs.paper-icon-theme;

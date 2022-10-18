@@ -20,6 +20,7 @@ in {
   config = {
     home.packages = [
       pkgs.mu
+      pkgs.notmuch
       pkgs.isync
       pkgs.offlineimap
       pkgs.davmail
@@ -48,6 +49,7 @@ in {
           realName = "Lukas Schmidt";
           msmtp.enable = true;
           mu.enable = true;
+          notmuch.enable = true;
           neomutt.enable = true;
         };
         Uwaterloo = {
@@ -83,6 +85,7 @@ in {
             tls.enable = false;
           };
           mu.enable = true;
+          notmuch.enable = true;
           neomutt.enable = true;
         };
       };
@@ -95,11 +98,41 @@ in {
       neomutt = {
         enable = true;
         vimKeys = true;
-        sidebar = {
-          enable = true;
-        };
+        extraConfig = ''
+        auto_view text/html
+        set mailcap_path = ~/.config/mailcap/mailcap
+        macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
+        '';
       };
     };
+
+    # source: https://gist.github.com/akheron/61a01d597360c0187dc4#file-mailcap
+    xdg.configFile."mailcap/mailcap".text = ''
+      # Open in browser when viewing interactively
+      text/html; chromium %s && sleep 1.5; description=HTML Text; nametemplate=%s.html
+      
+      # Dump with w3cm and the correct encoding when viewing non-interactively
+      text/html; w3m -dump -T text/html -I %{charset} -O utf-8 %s; copiousoutput; description=HTML Text; nametemplate=%s.html
+      
+      image/png; sxiv '%s'; test=test -n "$DISPLAY"
+      image/jpeg; sxiv '%s'; test=test -n "$DISPLAY"
+      
+      # Support non-standard image/jpg, too
+      image/jpg; sxiv '%s'; test=test -n "$DISPLAY"
+      
+      application/pdf; zathura '%s'; test=test -n "$DISPLAY"
+      application/x-pdf; zathura '%s'; test=test -n "$DISPLAY"
+      
+      # doc/docx
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document; lowriter '%s'; test=test -n "$DISPLAY"
+      application/msword; lowriter '%s'; test=test -n "$DISPLAY"
+      
+      # xlsx
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; localc '%s'; test=test -n "$DISPLAY"
+      
+      # winmail.dat
+      application/ms-tnef; tnef -w %s
+    '';
 
     # Need to run mu init -m $maildir once before you can begin
     systemd.user.services.mbsync = {
@@ -108,7 +141,7 @@ in {
         Type = "oneshot";
         ExecStart =
           "${pkgs.isync}/bin/mbsync --all";
-        ExecStop = "${pkgs.mu}/bin/mu index";
+        ExecStop = "${pkgs.mu}/bin/mu index; ${pkgs.notmuch}/bin/notmuch new";
         Environment = "PASSWORD_STORE_DIR=/home/lukas/.local/share/password-store";
       };
     };

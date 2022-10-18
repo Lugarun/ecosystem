@@ -22,6 +22,12 @@ define-command -override fzf-grep %{
   }
 }
 
+define-command -override fzf-remote %{
+  connect tmux-terminal-vertical bash -c %{
+    fzf_remote | xargs kcr edit --
+  }
+}
+
 define-command -override fzf-git-history %{
   connect tmux-terminal-vertical bash -c %{
     fzf_git_history | cut -d: -f-2 | xargs git show | kcr edit -
