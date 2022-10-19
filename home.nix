@@ -92,8 +92,8 @@
   gtk = {
       enable = true;
       theme = {
-          package =pkgs.dracula-theme;
-          name="Dracula";
+          package =pkgs.nordic;
+          name="Nordic";
           };
       iconTheme = {
           package = pkgs.paper-icon-theme;

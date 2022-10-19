@@ -71,7 +71,7 @@
     services.random-background = {
       enable = true;
       enableXinerama = true;
-      imageDirectory = "%h/projects/ecosystem/wallpapers";
+      imageDirectory = "%h/workspace/nix/ecosystem/wallpapers";
       interval = "1h";
     };
 
