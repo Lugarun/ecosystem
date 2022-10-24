@@ -78,7 +78,7 @@ myAdditionalKeys =
   , ((mod4Mask, xK_b), spawn "bash ~/workspace/nix/ecosystem/modules/xmonad/dunst/battery.sh")
   , ((mod4Mask, xK_v), spawn "bash ~/workspace/nix/ecosystem/modules/xmonad/dunst/volume.sh")
   , ((mod4Mask, xK_s), spawn "dunstctl set-paused toggle")
-  , ((mod4Mask, xK_e), nextScreen)
+  , ((mod4Mask, xK_e), spawn "bash ~/workspace/nix/ecosystem/modules/xmonad/emojipicker.sh")
   , ((mod4Mask, xK_w), nextScreen)
   , ((mod4Mask, xK_f), treeselectWorkspace myTreeConf myWorkspaces W.greedyView)
   , ((mod4Mask .|. shiftMask, xK_f), treeselectWorkspace myTreeConf myWorkspaces W.shift)

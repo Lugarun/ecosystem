@@ -24,6 +24,8 @@
 
 
   home.packages = [
+      pkgs.emojipick
+      pkgs.xclip
       pkgs.threema-desktop
       pkgs.bat
       pkgs.exa
@@ -79,12 +81,14 @@
       pkgs.unzip
       pkgs.udisks
       pkgs.mplayer
+      pkgs.unstable.gotktrix
       pkgs.gnumake
       pkgs.jq
       ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages
         (epkgs: [ epkgs.vterm epkgs.pyenv-mode ]))
       pkgs.sqlite
       pkgs.gcc
+      pkgs.helix
       ];
 
   home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";

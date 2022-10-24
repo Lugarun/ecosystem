@@ -7,7 +7,7 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        font.size = 10;
+        font.size = 8;
         window.opacity = 0.9;
         colors = {
           primary = {

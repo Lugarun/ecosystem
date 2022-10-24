@@ -43,3 +43,5 @@ rga-fzf() {
   xdg-open "$file"
 }
 export -f rga-fzf
+
+source "/home/lukas/.local/share/tab/completion/tab.bash"
