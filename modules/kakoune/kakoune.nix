@@ -35,7 +35,8 @@ in {
   
       pkgs.kak-lsp
       pkgs.parallel
-      pkgs.python-language-server
+      pkgs.python310Packages.python-lsp-server
+      pkgs.rnix-lsp
       pkgs.glow
   
       pkgs.xsel

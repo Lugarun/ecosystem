@@ -6,7 +6,13 @@ evaluate-commands %sh{
 
 define-command -override fzf-files %{
   connect terminal bash -c %{
-    fzf --preview 'bat {}' | xargs kcr edit --
+    fd --type f --strip-cwd-prefix --color=always --follow --hidden --exclude .git | fzf --ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}' | xargs kcr edit --
+  }
+}
+
+define-command -override fzf-files-git %{
+  connect terminal bash -c %{
+    git ls-files | fzf --ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}' | xargs kcr edit --
   }
 }
 

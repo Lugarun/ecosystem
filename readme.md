@@ -38,6 +38,8 @@ Here are the additional setup setps you need to take :( :
 - https://github.com/nrdxp/nixflk
 - https://git.bytes.zone/brian/dotfiles.nix
 - https://github.com/alexherbo2
+- package shell scripts: https://www.ertt.ca/nix/shell-scripts/
+- https://myme.no/posts/2020-01-26-nixos-for-development.html
 
 # Future
 
