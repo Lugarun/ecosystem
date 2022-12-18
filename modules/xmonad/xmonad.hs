@@ -119,7 +119,6 @@ defaults = defaultConfig
   -- Hooks
   , manageHook      = manageDocks <+> manageHook defaultConfig
   , layoutHook      = myLayout
-  , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
   , logHook         = workspaceHistoryHook
   , startupHook = do
       spawnOn "a" "chromium"
@@ -127,7 +126,7 @@ defaults = defaultConfig
   } `additionalKeys` myAdditionalKeys
 
 main = do
-  xmonad $ ewmh
+  xmonad $ ewmh . docks
          $ navigation2D def { defaultTiledNavigation = sideNavigation }
                         (xK_k, xK_h, xK_j, xK_l)
                         [(mod4Mask, windowGo),

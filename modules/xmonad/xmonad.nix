@@ -16,8 +16,9 @@
 
     services.picom = {
       enable = true;
-      blur = true;
-      inactiveDim = "0.2";
+      settings = {
+        inactive-dim = 0.2;
+      };
     };
 
     services.dunst = {
