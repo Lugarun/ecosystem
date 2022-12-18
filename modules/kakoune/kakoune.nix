@@ -44,8 +44,6 @@ in {
       pkgs.nix-linter
       pkgs.nixpkgs-fmt
       pkgs.nodejs # for idris
-      (pkgs.nerdfonts.override {
-        fonts = [ "DejaVuSansMono" ];})
     ];
     home.sessionVariables = {
       EDITOR = "kak";

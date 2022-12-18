@@ -12,7 +12,7 @@ define-command -override fzf-files %{
 
 define-command -override fzf-files-git %{
   connect terminal bash -c %{
-    git ls-files | fzf --ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}' | xargs kcr edit --
+    fd --type f --strip-cwd-prefix --color=always --follow | fzf --ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}' | xargs kcr edit --
   }
 }
 
