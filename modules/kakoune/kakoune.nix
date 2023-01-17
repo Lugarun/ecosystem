@@ -44,6 +44,9 @@ in {
       pkgs.nix-linter
       pkgs.nixpkgs-fmt
       pkgs.nodejs # for idris
+      pkgs.nil
+      pkgs.nodePackages_latest.bash-language-server
+      pkgs.nodePackages_latest.yaml-language-server
     ];
     home.sessionVariables = {
       EDITOR = "kak";

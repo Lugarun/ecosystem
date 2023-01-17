@@ -30,22 +30,25 @@ hook global WinCreate .* %{ kakboard-enable }
 # Key Bindings
 # ─────────────────────────
 
-map global user c ': comment-line <ret>' -docstring 'toggle line comments'
+map global user C ': comment-line <ret>' -docstring 'toggle line comments'
 
-map global user f ': fzf-files-git <ret>' -docstring 'fzf common files by name'
-map global user F ': fzf-files <ret>' -docstring 'fzf files by name'
+map global user c ': fzf-grep<ret>' -docstring 'fzf files by content'
+map global user f ': fzf-files <ret>' -docstring 'fzf common files by name'
 map global user b ': fzf-buffers <ret>' -docstring 'fzf buffers by name'
-map global user r ': fzf-grep<ret>' -docstring 'fzf files by content'
 map global user h ': fzf-git-history<ret>' -docstring 'fzf git history'
+
 map global user g ': connect terminal lazygit<ret>' -docstring 'lazygit'
 map global user t ': connect terminal <ret>' -docstring 'terminal'
 
 map global user | ': repl-new <ret>' -docstring 'create repl vertically inside tmux'
 map global user s ': repl-send-text <ret>' -docstring 'send selection to repl'
 
-map global user i '<a-i>c```[^\n]*\n,```<ret>' -docstring 'select markdown code block'
-map global user e ': eval %reg{.}<ret>' -docstring 'eval kakoune config selection'
-map global user v '<a-i>(:md-imv <ret>' -docstring 'open current markdown link with imv'
+hook global WinSetOption filetype=(kak|markdown) %{
+  map global user e ': eval %reg{.}<ret>' -docstring 'eval kakoune config selection'
+  map global user i '<a-i>c```[^\n]*\n,```<ret>' -docstring 'select markdown code block'
+  map global user v '<a-i>(:md-imv <ret>' -docstring 'open current markdown link with imv'
+}
+
 
 # Functions
 # ─────────────────────────

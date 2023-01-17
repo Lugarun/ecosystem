@@ -3,7 +3,7 @@
 eval %sh{kak-lsp --kakoune --session $kak_session}
 set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
-hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp|haskell|bash) %{
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp|haskell|bash|nix|markdown|yaml) %{
   map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
   map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
   map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'

@@ -2,6 +2,7 @@ set -o vi
 export BROWSER=firefox
 export XDG_CONFIG_HOME=/home/lukas/.config
 export DSTASK_GIT_REPO=/home/lukas/projects/task
+export PATH="$PATH:$HOME/.local/bin"
 alias t=dstask
 alias dr="xargs dateround now"
 alias w3md="(cd ~/Downloads; w3md duckduckgo.com)"

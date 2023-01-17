@@ -16,6 +16,22 @@ filetypes = ["python"]
 roots = ["requirements.txt", "setup.py", ".git", ".hg", ".envrc", "shell.nix", "default.nix"]
 command = "pyls"
 
+[language.markdown]
+filetypes = ["markdown", "md"]
+roots = [".git", ".envrc", "shell.nix", "default.nix", "flake.nix"]
+command = "marksman"
+
+[language.yaml]
+filetypes = ["yaml", "yml"]
+roots = [".git", ".envrc", "shell.nix", "default.nix", "flake.nix"]
+command = "yaml-language-server"
+args = ["--stdio"]
+
+[language.nix]
+filetypes = ["nix"]
+roots = [".git", ".envrc", "shell.nix", "default.nix", "flake.nix"]
+command = "nil"
+
 [language.elixir]
 filetypes = ["elixir"]
 roots = [".git", "mix.exs", ".envrc", "shell.nix", "default.nix"]
