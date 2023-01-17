@@ -10,7 +10,7 @@
     ./modules/ecosystem_path.nix
     ./modules/mail.nix
     ./modules/kakoune/kakoune.nix
-    ./modules/git.nix
+    ./modules/git/git.nix
     ./modules/tmux/tmux.nix
     ./modules/xmonad/xmonad.nix
     ./modules/zathura.nix
@@ -32,7 +32,8 @@
       pkgs.tab-rs
       pkgs.lutris
       pkgs.element-desktop
-      pkgs.gnome3.nautilus
+      pkgs.gvfs
+      pkgs.cinnamon.nemo
       pkgs.nixfmt
       pkgs.dstask
       pkgs.dvtm
@@ -88,7 +89,8 @@
         (epkgs: [ epkgs.vterm epkgs.pyenv-mode ]))
       pkgs.sqlite
       pkgs.gcc
-      pkgs.helix
+      pkgs.unstable.helix
+      pkgs.nordic
       ];
 
   home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";
@@ -96,7 +98,7 @@
   gtk = {
       enable = true;
       theme = {
-          package =pkgs.nordic;
+          package = pkgs.nordic;
           name="Nordic";
           };
       iconTheme = {
@@ -104,9 +106,15 @@
           name = "Paper";
           };
       };
+  home.sessionVariables.GTK_THEME = "Nordic";
 
   programs.htop = {
     enable = true;
+  };
+
+  home.file.".local/bin/hi" = {
+    source = ./hi;
+    executable = true;
   };
 
   programs.autorandr = {
