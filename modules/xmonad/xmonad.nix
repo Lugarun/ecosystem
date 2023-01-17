@@ -8,6 +8,7 @@
       pkgs.dunst
       pkgs.acpi
       pkgs.pamixer
+      pkgs.emojipick
     ];
     xsession.enable = true;
     xsession.windowManager.xmonad.enable = true;

@@ -8,7 +8,7 @@
       enable = true;
       settings = {
         font.size = 8;
-        window.opacity = 0.9;
+        window.opacity = 1;
         colors = {
           primary = {
             background = config.ecosystem.colors.background;
