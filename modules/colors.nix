@@ -156,7 +156,7 @@ in
           color15 = color "color15";
         };
       };
-      default = nord;
+      default = dracula;
     };
   };
 }

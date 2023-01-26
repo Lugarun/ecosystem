@@ -25,6 +25,7 @@
 
 
   home.packages = [
+      pkgs.dconf # for gtk
       pkgs.emojipick
       pkgs.xclip
       pkgs.threema-desktop
@@ -91,7 +92,7 @@
       pkgs.sqlite
       pkgs.gcc
       pkgs.unstable.helix
-      pkgs.nordic
+      pkgs.dracula-theme
       ];
 
   home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";
@@ -99,15 +100,15 @@
   gtk = {
       enable = true;
       theme = {
-          package = pkgs.nordic;
-          name="Nordic";
+          package = pkgs.dracula-theme;
+          name="Dracula";
           };
       iconTheme = {
-          package = pkgs.paper-icon-theme;
-          name = "Paper";
+          package = pkgs.dracula-theme;
+          name = "Dracula";
           };
       };
-  home.sessionVariables.GTK_THEME = "Nordic";
+  home.sessionVariables.GTK_THEME = "Dracula";
 
   programs.htop = {
     enable = true;
