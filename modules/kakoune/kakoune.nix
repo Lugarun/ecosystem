@@ -15,12 +15,15 @@
 { config, lib, pkgs, ... }:
 let
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
+  kakpipe = import ./kakpipe.nix { pkgs = pkgs; };
+  kak-kakpipe = import ./kak-kakpipe.nix { pkgs = pkgs; };
 in {
   config = {
     home.packages = [
       (pkgs.wrapKakoune pkgs.kakoune-unwrapped {
         configure = { plugins = [
           tagbar
+          kak-kakpipe
           pkgs.kakounePlugins.kakboard
           pkgs.kakounePlugins.kak-powerline
           pkgs.kakounePlugins.kakoune-rainbow
@@ -34,6 +37,7 @@ in {
       pkgs.xdotool
   
       pkgs.kak-lsp
+      kakpipe
       pkgs.parallel
       pkgs.python310Packages.python-lsp-server
       pkgs.rnix-lsp
