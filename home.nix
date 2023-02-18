@@ -26,6 +26,7 @@
 
   home.packages = [
       pkgs.dconf # for gtk
+      pkgs.dtach
       pkgs.emojipick
       pkgs.xclip
       pkgs.threema-desktop
@@ -93,6 +94,7 @@
       pkgs.gcc
       pkgs.unstable.helix
       pkgs.dracula-theme
+      pkgs.taskspooler
       ];
 
   home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";
@@ -114,10 +116,26 @@
     enable = true;
   };
 
-  home.file.".local/bin/hi" = {
-    source = ./hi;
-    executable = true;
-  };
+  #home.file.".local/bin/killabduco" = {
+  #  source = ./killabduco;
+  #  executable = true;
+  #};
+  #home.file.".local/bin/myabduco" = {
+  #  source = ./myabduco;
+  #  executable = true;
+  #};
+  #home.file.".local/bin/fzfabduco" = {
+  #  source = ./fzfabduco;
+  #  executable = true;
+  #};
+  #home.file.".local/bin/remote-push" = {
+  #  source = ./remote-push;
+  #  executable = true;
+  #};
+  #home.file.".local/bin/remote-pull" = {
+  #  source = ./remote-pull;
+  #  executable = true;
+  #};
 
   programs.autorandr = {
     enable = true;
