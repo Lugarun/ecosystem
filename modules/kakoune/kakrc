@@ -36,6 +36,7 @@ map global user c ': fzf-grep<ret>' -docstring 'fzf files by content'
 map global user f ': fzf-files <ret>' -docstring 'fzf common files by name'
 map global user b ': fzf-buffers <ret>' -docstring 'fzf buffers by name'
 map global user h ': fzf-git-history<ret>' -docstring 'fzf git history'
+map global user m ': make<ret>: buffer-previous<ret>' -docstring 'make'
 
 map global user g ': connect terminal lazygit<ret>' -docstring 'lazygit'
 map global user t ': connect terminal <ret>' -docstring 'terminal'

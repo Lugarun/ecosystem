@@ -42,6 +42,8 @@ in {
       pkgs.python310Packages.python-lsp-server
       pkgs.rnix-lsp
       pkgs.glow
+
+      pkgs.socat # for remote editing
   
       pkgs.xsel
       pkgs.fasd

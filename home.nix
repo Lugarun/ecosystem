@@ -27,6 +27,7 @@
   home.packages = [
       pkgs.dconf # for gtk
       pkgs.dtach
+      pkgs.pueue
       pkgs.emojipick
       pkgs.xclip
       pkgs.threema-desktop
@@ -78,7 +79,6 @@
       pkgs.pandoc
       pkgs.docker
       pkgs.discord
-      pkgs.teams
       pkgs.youtube-dl
       pkgs.spotify
       pkgs.wpgtk
