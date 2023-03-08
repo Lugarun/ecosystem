@@ -1,9 +1,14 @@
 # kak-lsp
 # ─────────────────────────
 eval %sh{kak-lsp --kakoune --session $kak_session}
+
 set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp|haskell|bash|nix|markdown|yaml) %{
+  lsp-enable-window
+  lsp-auto-hover-enable
+  lsp-auto-hover-insert-mode-disable
+  set-option window lsp_hover_anchor true
   map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
   map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
   map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
@@ -12,9 +17,6 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp|ha
   map global object k '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
   map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
   map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'  lsp-enable-window
-  lsp-auto-hover-enable
-  lsp-auto-hover-insert-mode-disable
-  set-option window lsp_hover_anchor true
 
 }
 

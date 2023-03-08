@@ -27,7 +27,6 @@
   home.packages = [
       pkgs.dconf # for gtk
       pkgs.dtach
-      pkgs.pueue
       pkgs.emojipick
       pkgs.xclip
       pkgs.threema-desktop
@@ -148,5 +147,61 @@
   services.gpg-agent.pinentryFlavor = "qt";
   services.gpg-agent.defaultCacheTtl = 7200;
   programs.password-store.enable = true;
+  services.pueue = {
+    enable = true;
+    settings = {
+      client = {
+        restart_in_place = false;
+        read_local_logs = true;
+        show_confirmation_questions = false;
+        show_expanded_aliases = false;
+        dark_mode = false;
+        max_status_lines = null;
+        status_time_format = "%H:%M:%S";
+        status_datetime_format = "%Y-%m-%d\n%H:%M:%S";
+      };
+      daemon = {
+        pause_group_on_failure = false;
+        pause_all_on_failure = false;
+        callback = null;
+        callback_log_lines = 10;
+      };
+      shared = {
+        pueue_directory = null;
+        runtime_directory = null;
+        use_unix_socket = true;
+        pid_path = null;
+        unix_socket_path = null;
+        host = "127.0.0.1";
+        port = "6924";
+        daemon_cert = null;
+        daemon_key = null;
+        shared_secret_path = null;
+      };
+      profiles = {
+        remote = {
+          shared = {
+            host = "127.0.0.1";
+            port = "6924";
+            unix_socket_path = "/tmp/local.socket";
+            use_unix_socket = true;
+            runtime_directory = "/home/lfschmid";
+          };
+        };
+      };
+    };
+  };
 
+  #systemd.user = {
+  #  services.pueued = {
+  #    Unit = {
+  #      Description = "Pueue Daemon - CLI process scheduler and manager";
+  #    };
+  #    Service = {
+  #      Restart = "on-failure";
+  #      ExecStart = "${pkgs.pueue}/bin/pueued -v -c /home/lukas/.config/pueue/pueue.yml";
+  #    };
+  #    Install.WantedBy = [ "default.target" ];
+  #  };
+  #};
 }

@@ -14,7 +14,11 @@ args = ["--init={\"completion\":{\"detailedLabel\":false}}"]
 [language.python]
 filetypes = ["python"]
 roots = ["requirements.txt", "setup.py", ".git", ".hg", ".envrc", "shell.nix", "default.nix"]
-command = "pyls"
+command = "pylsp"
+settings_section = "_"
+[language.python.settings._]
+# See https://github.com/python-lsp/python-lsp-server#configuration
+# pylsp.configurationSources = ["flake8"]
 
 [language.markdown]
 filetypes = ["markdown", "md"]
