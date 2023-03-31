@@ -94,6 +94,7 @@
       pkgs.unstable.helix
       pkgs.dracula-theme
       pkgs.taskspooler
+      pkgs.android-file-transfer
       ];
 
   home.sessionVariables.DSTASK_GIT_REPO = "/home/lukas/projects/task";
