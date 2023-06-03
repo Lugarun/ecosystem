@@ -41,7 +41,7 @@
       pkgs.dstask
       pkgs.dvtm
       pkgs.abduco
-      pkgs.bpytop
+      pkgs.btop
       pkgs.dateutils
       pkgs.remind
       pkgs.wyrd

@@ -47,7 +47,7 @@ in {
   
       pkgs.xsel
       pkgs.fasd
-      pkgs.nix-linter
+      # pkgs.nix-linter
       pkgs.nixpkgs-fmt
       pkgs.nodejs # for idris
       pkgs.nil

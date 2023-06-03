@@ -11,6 +11,7 @@ evaluate-commands %sh{
 # Visual Options
 # ─────────────────────────
 set global ui_options ncurses_set_title=false
+add-highlighter global/ number-lines -relative
 addhl global/ wrap
 # Increase menu contrast
 face global MenuBackground white,black
@@ -39,7 +40,7 @@ map global user h ': fzf-git-history<ret>' -docstring 'fzf git history'
 map global user m ': make<ret>: buffer-previous<ret>' -docstring 'make'
 
 map global user g ': connect terminal lazygit<ret>' -docstring 'lazygit'
-map global user p ': connect terminal bpytop<ret>' -docstring 'bpytop'
+map global user p ': connect terminal btop<ret>' -docstring 'btop'
 map global user t ': connect terminal <ret>' -docstring 'terminal'
 
 map global user | ': repl-new <ret>' -docstring 'create repl vertically inside tmux'
