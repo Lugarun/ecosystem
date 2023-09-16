@@ -7,7 +7,7 @@
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       enableVteIntegration = true;
       autocd = true;
       defaultKeymap = "viins";
@@ -55,6 +55,13 @@
           };
         };
       };
+    };
+
+    programs.eza = {
+      enable = true;
+      enableAliases = true;
+      git = true;
+      icons = true;
     };
   };
 }

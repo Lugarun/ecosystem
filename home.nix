@@ -31,7 +31,6 @@
       pkgs.xclip
       pkgs.threema-desktop
       pkgs.bat
-      pkgs.exa
       pkgs.tab-rs
       pkgs.lutris
       pkgs.element-desktop
@@ -48,7 +47,7 @@
       pkgs.texlive.combined.scheme-full
       pkgs.sqlite
       pkgs.fzf
-      pkgs.ripgrep
+      pkgs.ripgrep-all
       pkgs.obs-studio
       pkgs.gnome3.gnome-screenshot
       pkgs.zoom-us
@@ -62,7 +61,7 @@
       pkgs.bc
       pkgs.xournal
       pkgs.killall
-      pkgs.unstable.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
+      pkgs.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
       pkgs.restic
       pkgs.openconnect
       pkgs.scrot
@@ -84,14 +83,14 @@
       pkgs.unzip
       pkgs.udisks
       pkgs.mplayer
-      pkgs.unstable.gotktrix
+      pkgs.gotktrix
       pkgs.gnumake
       pkgs.jq
       ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages
         (epkgs: [ epkgs.vterm epkgs.pyenv-mode ]))
       pkgs.sqlite
       pkgs.gcc
-      pkgs.unstable.helix
+      pkgs.helix
       pkgs.dracula-theme
       pkgs.taskspooler
       pkgs.android-file-transfer

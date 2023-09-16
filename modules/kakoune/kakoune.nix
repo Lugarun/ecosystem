@@ -20,6 +20,7 @@ let
 in {
   config = {
     home.packages = [
+      pkgs.tree-sitter-kak
       (pkgs.wrapKakoune pkgs.kakoune-unwrapped {
         configure = { plugins = [
           tagbar
