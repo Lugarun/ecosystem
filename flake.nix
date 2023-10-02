@@ -18,9 +18,7 @@
         overlays = [
           (final: prev: {
             inherit tree-sitter-kak;
-            ripgrep-all = (prev.ripgrep-all.overrideAttrs (old: {
-              doInstallCheck = false; 
-            }));
+            ripgrep-all = prev.ripgrep;
           })
         ];
       };

@@ -24,7 +24,7 @@ define-command -override fzf-buffers %{
 
 define-command -override fzf-grep %{
   connect terminal bash -c %{
-    kcr fzf grep
+    grep -i --recursive --line-number . | fzf --delimiter=':' -n 2.. --preview-window '+{2}-/2' --preview 'bat --color=always --style=header,grid --highlight-line {2} {1}' --bind 'ctrl-o:execute(kak +{2} {1} < /dev/tty)' | awk -F':' '{print $1 " +"$2 }' | xargs kcr edit --
   }
 }
 
