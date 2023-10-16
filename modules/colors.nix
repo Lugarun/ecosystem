@@ -127,6 +127,44 @@ let
     color7 = "#d0d0d0";
     color15 = "#f5f5f5";
   };
+  everforest = {
+    # special
+    foreground = "#d3c6aa";
+    background = "#232a2e";
+    cursorColor = "#d3c6aa";
+
+    # black
+    color0 = "#7a8478";
+    color8 = "#7a8478";
+
+    # red
+    color1 = "#e67e80";
+    color9 = "#e67e80";
+
+    # green
+    color2 = "#a7c080";
+    color10 = "#a7c080";
+
+    # yellow
+    color3 = "#dbbc7f";
+    color11 = "#dbbc7f";
+
+    # blue
+    color4 = "#7fbbb3";
+    color12 = "#7fbbb3";
+
+    # magenta
+    color5 = "#d699b6";
+    color13 = "#d699b6";
+
+    # cyan
+    color6 = "#83c092";
+    color14 = "#83c092";
+
+    # white
+    color7 = "#d3c6aa";
+    color15 = "#d3c6aa";
+  };
 in
 {
   options.ecosystem = {
@@ -156,7 +194,7 @@ in
           color15 = color "color15";
         };
       };
-      default = dracula;
+      default = everforest ;
     };
   };
 }

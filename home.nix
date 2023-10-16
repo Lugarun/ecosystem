@@ -9,7 +9,7 @@
     ./modules/calendar/calendar.nix
     ./modules/colors.nix
     ./modules/ecosystem_path.nix
-    ./modules/mail.nix
+    #./modules/mail.nix
     ./modules/kakoune/kakoune.nix
     ./modules/git.nix
     ./modules/tmux/tmux.nix

@@ -12,10 +12,10 @@
 # The configuration for the plugins is done in the plugin
 # folder that gets sourced by kakrc
 
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 let
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
-  kakpipe = import ./kakpipe.nix { pkgs = pkgs; };
+  #kakpipe = import ./kakpipe.nix { pkgs = pkgs; };
   kak-kakpipe = import ./kak-kakpipe.nix { pkgs = pkgs; };
 in {
   config = {
@@ -26,7 +26,6 @@ in {
           tagbar
           kak-kakpipe
           pkgs.kakounePlugins.kakboard
-          pkgs.kakounePlugins.kak-powerline
           pkgs.kakounePlugins.kakoune-rainbow
         ]; };
       })
@@ -38,7 +37,7 @@ in {
       pkgs.xdotool
   
       pkgs.kak-lsp
-      kakpipe
+      #kakpipe
       pkgs.parallel
       pkgs.python310Packages.python-lsp-server
       pkgs.rnix-lsp
@@ -48,7 +47,6 @@ in {
   
       pkgs.xsel
       pkgs.fasd
-      # pkgs.nix-linter
       pkgs.nixpkgs-fmt
       pkgs.nodejs # for idris
       pkgs.nil
