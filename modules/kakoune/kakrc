@@ -35,7 +35,7 @@ hook global WinCreate .* %{ kakboard-enable }
 
 map global user C ': comment-line <ret>' -docstring 'toggle line comments'
 
-map global user c ': fzf-grep<ret>' -docstring 'fzf files by content'
+map global user c ': fzf-rg<ret>' -docstring 'fzf files by content'
 map global user f ': fzf-files <ret>' -docstring 'fzf common files by name'
 map global user b ': fzf-buffers <ret>' -docstring 'fzf buffers by name'
 map global user h ': fzf-git-history<ret>' -docstring 'fzf git history'

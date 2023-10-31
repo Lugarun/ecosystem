@@ -44,7 +44,7 @@
             shell = ["sh"];
             style = "bold blue";
           };
-          kakoune = {
+         kakoune = {
             symbol = "🐈";
             command = "kcr prompt";
             when = "kcr prompt";

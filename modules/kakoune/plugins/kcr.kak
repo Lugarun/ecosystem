@@ -22,9 +22,9 @@ define-command -override fzf-buffers %{
   }
 }
 
-define-command -override fzf-grep %{
+define-command -override fzf-rg %{
   connect terminal bash -c %{
-    grep -i --recursive --line-number . | fzf --delimiter=':' -n 2.. --preview-window '+{2}-/2' --preview 'bat --color=always --style=header,grid --highlight-line {2} {1}' --bind 'ctrl-o:execute(kak +{2} {1} < /dev/tty)' | awk -F':' '{print $1 " +"$2 }' | xargs kcr edit --
+    fzf --delimiter=':' --preview-window '+{2}-/2' --preview 'bat --color=always --style=header,grid --highlight-line {2} {1}' --bind 'change:reload:rg --column --line-number --ignore --ignore-case --no-heading {q}' --bind 'ctrl-o:execute(kak +{2} {1} < /dev/tty)' | awk -F':' '{print $1 " +"$2 }' | xargs kcr edit --
   }
 }
 
