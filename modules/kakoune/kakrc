@@ -8,6 +8,8 @@ evaluate-commands %sh{
   done
 }
 
+eval %sh{ kak-tree-sitter -dks --session $kak_session }
+
 # Visual Options
 # ─────────────────────────
 set global ui_options ncurses_set_title=false

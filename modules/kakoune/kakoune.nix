@@ -17,6 +17,7 @@ let
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
   #kakpipe = import ./kakpipe.nix { pkgs = pkgs; };
   kak-kakpipe = import ./kak-kakpipe.nix { pkgs = pkgs; };
+  kak-tree-sitter = pkgs.callPackage ./kak-tree-sitter.nix { };
 in {
   config = {
     home.packages = [
@@ -35,11 +36,12 @@ in {
       pkgs.fd
       pkgs.universal-ctags
       pkgs.xdotool
-  
+
+      kak-tree-sitter
       pkgs.kak-lsp
       #kakpipe
       pkgs.parallel
-      pkgs.python310Packages.python-lsp-server
+      pkgs.nodePackages_latest.pyright
       pkgs.rnix-lsp
       pkgs.glow
 
