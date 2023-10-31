@@ -11,7 +11,7 @@ pkgs.stdenv.mkDerivation rec {
   };
 
   propagatedBuildInputs = [
-    ];
+  ];
 
   dontBuild = true;
 

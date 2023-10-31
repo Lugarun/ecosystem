@@ -39,7 +39,7 @@ map global user c ': fzf-grep<ret>' -docstring 'fzf files by content'
 map global user f ': fzf-files <ret>' -docstring 'fzf common files by name'
 map global user b ': fzf-buffers <ret>' -docstring 'fzf buffers by name'
 map global user h ': fzf-git-history<ret>' -docstring 'fzf git history'
-map global user m ': make<ret>: buffer-previous<ret>' -docstring 'make'
+map global user m ': mmake all<ret>' -docstring 'make'
 
 map global user g ': connect terminal lazygit<ret>' -docstring 'lazygit'
 map global user p ': connect terminal btop<ret>' -docstring 'btop'
@@ -47,9 +47,6 @@ map global user t ': connect terminal <ret>' -docstring 'terminal'
 
 map global user | ': repl-new <ret>' -docstring 'create repl vertically inside tmux'
 map global user s ': repl-send-text <ret>' -docstring 'send selection to repl'
-
-map global user r ':rpueue status<ret>' -docstring 'view remote status'
-map global user l ':rpueue log<ret>' -docstring 'view remote logs'
 
 hook global WinSetOption filetype=(kak|markdown) %{
   map global user e ': eval %reg{.}<ret>' -docstring 'eval kakoune config selection'
@@ -70,3 +67,4 @@ define-command -docstring "cite using zotero, zotero needs to be open" zoterocit
   }
 
 define-command -docstring "evaluate selected kakoune script" do %{ eval %val{selection} }
+

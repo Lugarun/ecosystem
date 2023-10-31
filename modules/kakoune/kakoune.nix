@@ -15,7 +15,7 @@
 { pkgs, ... }:
 let
   tagbar = import ./tagbar.nix { pkgs = pkgs; };
-  #kakpipe = import ./kakpipe.nix { pkgs = pkgs; };
+  kakpipe = import ./kakpipe.nix { pkgs = pkgs; };
   kak-kakpipe = import ./kak-kakpipe.nix { pkgs = pkgs; };
   kak-tree-sitter = pkgs.callPackage ./kak-tree-sitter.nix { };
 in {
@@ -39,7 +39,7 @@ in {
 
       kak-tree-sitter
       pkgs.kak-lsp
-      #kakpipe
+      kakpipe
       pkgs.parallel
       pkgs.nodePackages_latest.pyright
       pkgs.rnix-lsp
