@@ -61,7 +61,7 @@
       pkgs.bc
       pkgs.xournal
       pkgs.killall
-      pkgs.zotero # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
+      # pkgs.zotero (currently insecure) # TODO currently manual: install/set zotfile directory and other addons, all configurration is manual
       pkgs.restic
       pkgs.openconnect
       pkgs.scrot
