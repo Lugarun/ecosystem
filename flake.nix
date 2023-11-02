@@ -3,19 +3,23 @@
 
   inputs = {
     tree-sitter-kak.url = "github:enricozb/tree-sitter.kak";
+    panrun.url = "github:lugarun/panrun";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, tree-sitter-kak, ... }:
+  outputs = { self, nixpkgs, home-manager, tree-sitter-kak, panrun, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
+          (final: prev: {
+            panrun = panrun.packages.${system}.panrun;
+          })
           (final: prev: {
             inherit tree-sitter-kak;
             ripgrep-all = prev.ripgrep;

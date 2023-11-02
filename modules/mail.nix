@@ -7,7 +7,6 @@ in {
   imports = [
     ./git.nix
     ./bash/bash.nix
-    ./ecosystem_path.nix
   ];
 
   options.ecosystem.mail = {

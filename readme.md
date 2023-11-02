@@ -1,7 +1,7 @@
 ## Home-manager Setup
 Make sure you have nix installed.
 Then get the password store setup to import your secrets
-```bash
+```{.sh pipe="bash"}
 nix-shell -p gpg pass git
 gpg --import password-store.key
 git clone "password-store git repo" ~/.password-store
@@ -13,9 +13,16 @@ so that I can 'easily' port my environment (including desktop-manager)
 to a different host.
 
 So here is my break down:
-```bash
-secrets # contains my secrets using git-crypt
+
+```{.python pipe="python"}
+print("ls")
 ```
+
+```{.sh pipe="bash"}
+echo hello world
+pwd
+```
+
 
 Note that my hardware config is done via a [different repo](https://github.com/Lugarun/biome).
 

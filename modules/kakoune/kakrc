@@ -8,7 +8,7 @@ evaluate-commands %sh{
   done
 }
 
-eval %sh{ kak-tree-sitter -dks --session $kak_session }
+evaluate-commands %sh{ kak-tree-sitter -dks --session $kak_session }
 
 # Visual Options
 # ─────────────────────────
@@ -48,8 +48,11 @@ map global user t ': connect terminal <ret>' -docstring 'terminal'
 map global user | ': repl-new <ret>' -docstring 'create repl vertically inside tmux'
 map global user s ': repl-send-text <ret>' -docstring 'send selection to repl'
 
-hook global WinSetOption filetype=(kak|markdown) %{
+hook global WinSetOption filetype=(kak) %{
   map global user e ': eval %reg{.}<ret>' -docstring 'eval kakoune config selection'
+}
+hook global WinSetOption filetype=(markdown) %{
+  map global user e ':babel-buffer<ret>' -docstring 'babel buffer'
   map global user i '<a-i>c```[^\n]*\n,```<ret>' -docstring 'select markdown code block'
   map global user v '<a-i>(:md-imv <ret>' -docstring 'open current markdown link with imv'
 }
@@ -67,4 +70,25 @@ define-command -docstring "cite using zotero, zotero needs to be open" zoterocit
   }
 
 define-command -docstring "evaluate selected kakoune script" do %{ eval %val{selection} }
+
+define-command -override -docstring "orgmode style code buffer" babel-buffer %{
+  eval %sh{
+    output=$(mktemp -d -t kak-temp-XXXXXXX)
+    panrun -f ${kak_buffile} -n ${kak_cursor_line} > ${output}/panrun
+    tail -n+3 ${output}/panrun > ${output}/file
+    head -n 1 ${output}/panrun > ${output}/filetype
+    head -n 2 ${output}/panrun | tail -1 > ${output}/run
+    ln -s $(pwd) ${output}/root
+
+    echo "edit! ${output}/file"
+    echo set buffer filetype $(cat ${output}/filetype)
+    echo "hook buffer BufClose .* %{ nop %sh{ rm -r $output} }"
+    echo map buffer user e "':babel-execute-buffer $output <ret>'" "-docstring 'execute babel buffer'"
+  }
+}
+
+define-command -override -docstring "execute babel buffer" -params 1 babel-execute-buffer %{
+  kakpipe -- sh -c "pushd '%arg{1}' > /dev/null; cat file | bash run; popd > /dev/null"
+}
+
 

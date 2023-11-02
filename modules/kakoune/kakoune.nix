@@ -38,7 +38,10 @@ in {
       pkgs.xdotool
 
       kak-tree-sitter
+      pkgs.tree-sitter
+      pkgs.tree-sitter-grammars.tree-sitter-markdown
       pkgs.kak-lsp
+      pkgs.panrun
       kakpipe
       pkgs.parallel
       pkgs.nodePackages_latest.pyright

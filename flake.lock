@@ -5,6 +5,24 @@
         "systems": "systems"
       },
       "locked": {
+        "lastModified": 1694529238,
+        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
         "lastModified": 1681202837,
         "narHash": "sha256-H+Rh19JDwRtpVPAWp64F+rlEtxUWBAQW28eAi3SRSzg=",
         "owner": "numtide",
@@ -54,6 +72,21 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1698887255,
+        "narHash": "sha256-wz3i8fmt4lPGFcKXOkAnPtf5674kp35WvoGhhdxvy4Q=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "88581918572d10f525689748732fe17aa8e44a4e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1682566018,
         "narHash": "sha256-HPzPRFiy2o/7k7mtnwfM1E6NVZHiFbPdmYCMoIpkHO4=",
         "owner": "NixOS",
@@ -68,10 +101,30 @@
         "type": "github"
       }
     },
+    "panrun": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1698897030,
+        "narHash": "sha256-e1KYYs4mXYH6s/ekCo0BeSa33t+NqeIpIts1SJz5oeQ=",
+        "owner": "lugarun",
+        "repo": "panrun",
+        "rev": "4ef2f1807a7a240dd36a1a7aa5b754b53ac4db60",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lugarun",
+        "repo": "panrun",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "panrun": "panrun",
         "tree-sitter-kak": "tree-sitter-kak"
       }
     },
@@ -90,10 +143,25 @@
         "type": "github"
       }
     },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "tree-sitter-kak": {
       "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2"
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1684121710,
